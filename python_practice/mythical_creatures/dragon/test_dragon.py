@@ -19,17 +19,31 @@ def test_has_color():
     assert dragon.color == 'gold'
     assert dragon.color != 'bronze'
 
-def test_has_name():
-    ...
+def test_default_hungry():
+    dragon = Dragon('Mnementh', 'bronze', 'Flar')
 
-def test_has_name():
-    ...
+    assert dragon.is_hungry() == True
 
-def test_has_name():
-    ...
+def test_gets_full_eating():
+    dragon = Dragon('Mnementh', 'bronze', 'Flar')
 
-def test_has_name():
-    ...
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == False
 
-def test_has_name():
-    ...
+def test_hungry_after_sleep():
+    dragon = Dragon('Mnementh', 'bronze', 'Flar')
+
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == True
+    dragon.eat()
+    assert dragon.is_hungry() == False
+    dragon.sleep()
+    assert dragon.is_hungry() == True
