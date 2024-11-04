@@ -6,6 +6,9 @@ class Medusa:
     def stare(self, victim):
         self.statues.append(victim)
         victim.stoned = True
+        if len(self.statues) == 4:
+            first = self.statues.pop(0)
+            first.stoned = False
 
 
 class Person:

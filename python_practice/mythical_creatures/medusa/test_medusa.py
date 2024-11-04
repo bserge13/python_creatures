@@ -33,3 +33,25 @@ def test_victims_turn_stoned():
     assert victim.is_stoned() == False
     medusa.stare(victim)
     assert victim.is_stoned() == True
+
+def test_victims_limit():
+    medusa = Medusa('Cassiopeia')
+    victim1 = Person('Perseus')
+    victim2 = Person('Nova')
+    victim3 = Person('Loki')
+    victim4 = Person('Karl')
+
+    medusa.stare(victim1)
+    medusa.stare(victim2)
+    medusa.stare(victim3)
+
+    assert len(medusa.statues) == 3
+    assert medusa.statues == [victim1, victim2, victim3]
+
+    medusa.stare(victim4)
+
+    assert len(medusa.statues) == 3
+    assert medusa.statues == [victim2, victim3, victim4]
+    assert victim1.is_stoned() == False
+    assert victim4.is_stoned() == True
+
