@@ -5,7 +5,7 @@ class Medusa:
 
     def stare(self, victim):
         self.statues.append(victim)
-        # victim.stoned = True
+        victim.stoned = True
 
 
 class Person:
