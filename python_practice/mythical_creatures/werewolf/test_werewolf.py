@@ -76,7 +76,30 @@ def test_consumes_victim():
     assert len(wolf.victims) == 0
     assert wolf.victims == []
 
+    wolf.change()
     wolf.consume_victim(farmer)
 
     assert len(wolf.victims) == 1
     assert wolf.victims == [farmer]
+
+def test_only_consumes_as_wolf():
+    wolf = Werewolf('David')
+    farmer = Victim()
+
+    assert len(wolf.victims) == 0
+    assert wolf.victims == []
+
+    wolf.consume_victim(farmer)
+
+    assert len(wolf.victims) == 0
+    assert wolf.victims == []
+
+def test_not_hungry_after_consume():
+    wolf = Werewolf('David')
+    farmer = Victim()
+
+    wolf.change()
+    wolf.consume_victim(farmer)
+    wolf.change()
+
+    assert wolf.is_hungry() == False

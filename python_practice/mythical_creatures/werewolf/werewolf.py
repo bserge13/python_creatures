@@ -19,10 +19,13 @@ class Werewolf:
         self.hungry = not self.hungry
     
     def is_hungry(self):
+        if len(self.victims) > 0:
+            self.hungry = False
         return self.hungry
 
     def consume_victim(self, victim):
-        self.victims.append(victim)
+        if self.wolf == True and self.human == False:
+            self.victims.append(victim)
 
 class Victim:
     def __init__(self):
