@@ -5,6 +5,7 @@ class Werewolf:
         self.human = True
         self.wolf = False
         self.hungry = False
+        self.victims = []
 
     def is_human(self):
         return self.human
@@ -19,3 +20,10 @@ class Werewolf:
     
     def is_hungry(self):
         return self.hungry
+
+    def consume_victim(self, victim):
+        self.victims.append(victim)
+
+class Victim:
+    def __init__(self):
+        ...

@@ -1,5 +1,5 @@
 import pytest 
-from werewolf import Werewolf
+from werewolf import Werewolf, Victim
 
 def test_has_name():
     wolf = Werewolf('David')
@@ -68,3 +68,15 @@ def test_hungry_when_changing():
 
     assert wolf.is_wolf() == True
     assert wolf.is_hungry() == True
+
+def test_consumes_victim():
+    wolf = Werewolf('David')
+    farmer = Victim()
+
+    assert len(wolf.victims) == 0
+    assert wolf.victims == []
+
+    wolf.consume_victim(farmer)
+
+    assert len(wolf.victims) == 1
+    assert wolf.victims == [farmer]
