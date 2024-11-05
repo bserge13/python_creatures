@@ -21,3 +21,15 @@ def test_meets_humans():
 
     ogre.encounter(human)
     assert ogre.encounter_counter == 1
+
+def test_noticed_by_humans():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    assert ogre.encounter_counter == 0
+    ogre.encounter(human)
+    ogre.encounter(human)
+    assert human.notice_ogre == False
+
+    ogre.encounter(human)
+    assert human.notice_ogre == True
