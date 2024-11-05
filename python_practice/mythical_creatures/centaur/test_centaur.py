@@ -110,3 +110,30 @@ def test_sleeps():
     centaur.stand_up()
     assert centaur.shoot() == 'Twang!!!'
     assert centaur.run() == 'Clop clop clop clop!'
+
+def test_rested_from_potion():
+    centaur = Centaur('George', 'Palomino')
+
+    for _ in range(3):
+        centaur.shoot()
+
+    assert centaur.is_cranky() == True
+    assert centaur.is_standing() == True
+
+    centaur.drink_potion()
+
+    assert centaur.is_cranky() == False
+
+def test_only_drinks_standing():
+    centaur = Centaur('George', 'Palomino')
+
+    for _ in range(3):
+        centaur.shoot()
+
+    centaur.lay_down()
+    assert centaur.drink_potion() == 'NO!'
+
+def test_sick_when_drinking_rested():
+    centaur = Centaur('George', 'Palomino')
+
+    assert centaur.drink_potion() == '**thorwing up**'

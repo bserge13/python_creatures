@@ -46,3 +46,13 @@ class Centaur:
     def stand_up(self):
         self.standing = True
         self.laying = False
+
+    def drink_potion(self):
+        if self.standing:
+            if self.cranky:
+                self.cranky = False
+                self.activity_count = 0
+            else:
+                return '**thorwing up**'
+        else:
+            return 'NO!'
