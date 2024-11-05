@@ -103,3 +103,15 @@ def test_not_hungry_after_consume():
     wolf.change()
 
     assert wolf.is_hungry() == False
+
+def test_victims_dead_after_consumed():
+    wolf = Werewolf('David')
+    farmer = Victim()
+
+    assert farmer.is_alive() == True
+
+    wolf.change()
+    wolf.consume_victim(farmer)
+    wolf.change()
+
+    assert farmer.is_alive() == False

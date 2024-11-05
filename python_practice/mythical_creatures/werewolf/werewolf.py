@@ -25,8 +25,12 @@ class Werewolf:
 
     def consume_victim(self, victim):
         if self.wolf == True and self.human == False:
+            victim.alive = False
             self.victims.append(victim)
 
 class Victim:
     def __init__(self):
-        ...
+        self.alive = True
+    
+    def is_alive(self):
+        return self.alive
