@@ -69,13 +69,44 @@ def test_sleeps_laying_down():
     assert centaur.sleep() != 'NO!'
 
 def test_no_shooting_laying():
-    ...
+    centaur = Centaur('George', 'Palomino')
+
+    centaur.lay_down()
+    assert centaur.is_laying() == True
+
+    assert centaur.shoot() != 'Twang!!!'
+    assert centaur.shoot() == 'NO!'
 
 def test_no_running_laying():
-    ...
+    centaur = Centaur('George', 'Palomino')
+
+    centaur.lay_down()
+    assert centaur.is_laying() == True
+
+    assert centaur.run() != 'Clop clop clop clop!'
+    assert centaur.run() == 'NO!'
 
 def test_stands():
-    ...
+    centaur = Centaur('George', 'Palomino')
+
+    centaur.lay_down()
+    assert centaur.is_laying() == True
+
+    centaur.stand_up()
+    assert centaur.is_standing() == True
 
 def test_sleeps():
-    ...
+    centaur = Centaur('George', 'Palomino')
+
+    centaur.run()
+    centaur.shoot()
+    centaur.run()
+    assert centaur.is_cranky() == True
+
+    centaur.lay_down()
+    centaur.sleep()
+    assert centaur.is_cranky() == False
+
+    centaur.stand_up()
+    assert centaur.shoot() == 'Twang!!!'
+    assert centaur.run() == 'Clop clop clop clop!'

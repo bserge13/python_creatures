@@ -9,14 +9,17 @@ class Centaur:
 
     def shoot(self):
         self.activity_count += 1
-        if self.activity_count >= 3:
+        if self.activity_count >= 3 or self.laying:
             return 'NO!'
         else:
             return 'Twang!!!'
 
     def run(self):
         self.activity_count += 1
-        return 'Clop clop clop clop!'
+        if self.activity_count >= 3 or self.laying:
+            return 'NO!'
+        else:
+            return 'Clop clop clop clop!'
 
     def is_cranky(self):
         if self.activity_count >= 3:
@@ -29,6 +32,9 @@ class Centaur:
     def sleep(self):
         if self.standing:
             return 'NO!'
+        else:
+            self.cranky = False
+            self.activity_count = 0
 
     def is_laying(self):
         return self.laying
@@ -36,3 +42,7 @@ class Centaur:
     def lay_down(self):
         self.laying = True
         self.standing = False
+
+    def stand_up(self):
+        self.standing = True
+        self.laying = False
