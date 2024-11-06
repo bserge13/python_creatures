@@ -6,9 +6,10 @@ class Ogre:
 
     def encounter(self, human):
         self.encounter_counter += 1
-        if self.encounter_counter >= 3:
+        if self.encounter_counter % 3 == 0:
             human.notice_ogre = True
-
+        else:
+            human.notice_ogre = False
 
 
 class Human:

@@ -33,3 +33,20 @@ def test_noticed_by_humans():
 
     ogre.encounter(human)
     assert human.notice_ogre == True
+
+def test_noticed_if_divisible_by_3():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    for _ in range(3):
+        ogre.encounter(human)
+    assert human.notice_ogre == True
+
+    ogre.encounter(human)
+    ogre.encounter(human)
+
+    assert ogre.encounter_counter == 5
+    assert human.notice_ogre == False
+
+    ogre.encounter(human)
+    assert human.notice_ogre == True
