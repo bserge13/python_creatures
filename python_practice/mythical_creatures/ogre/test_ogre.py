@@ -72,3 +72,25 @@ def test_swings_when_noticed():
 
     assert ogre.swings == 1
     assert human.notice_ogre == True
+
+def test_hits_human():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    for _ in range(6):
+        ogre.encounter(human)
+
+    assert ogre.encounter_counter == 6
+    assert ogre.swings == 2
+    assert human.is_hit == True
+
+def test_apology_wakes_human():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    for _ in range(6):
+        ogre.encounter(human)
+
+    assert human.is_hit == True
+    ogre.apologize(human)
+    assert human.is_hit == False
