@@ -50,3 +50,25 @@ def test_noticed_if_divisible_by_3():
 
     ogre.encounter(human)
     assert human.notice_ogre == True
+
+def test_swings_club():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    assert ogre.swings == 0
+    ogre.swing_at(human)
+    assert ogre.swings == 1
+
+def test_swings_when_noticed():
+    ogre = Ogre('Brak')
+    human = Human()
+
+    ogre.encounter(human)
+    assert ogre.swings == 0
+    assert human.notice_ogre == False
+
+    ogre.encounter(human)
+    ogre.encounter(human)
+
+    assert ogre.swings == 1
+    assert human.notice_ogre == True
