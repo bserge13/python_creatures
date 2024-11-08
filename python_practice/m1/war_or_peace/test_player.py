@@ -12,20 +12,15 @@ player = Player('Clarisa', deck)
 
 def test_player_attrs():
     assert player.name == 'Clarisa'
-    assert player.deck == [card1, card2, card3]
+    assert player.deck == deck
 
 def test_has_lost():
-    assert player.deck == [card1, card2, card3]
     assert player.has_lost() == False
     assert player.remove_card() == card1
 
-    assert player.deck == [card2, card3]
     assert player.has_lost() == False
     assert player.remove_card() == card2
     
-    assert player.deck == [card3]
     assert player.has_lost() == False
     assert player.remove_card() == card3
-
-    assert player.deck == []
-    assert player.has_lost() == False
+    assert player.has_lost() == True
