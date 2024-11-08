@@ -16,3 +16,9 @@ class Deck:
 
     def percent_high_ranking(self):
         return round(float(len(self.high_ranking_cards()) * 100) / float(len(self.cards)), 2)
+
+    def remove_card(self):
+        return self.cards.pop(0)
+
+    def add_card(self, card):
+        self.cards.append(card)
