@@ -1,0 +1,3 @@
+class PLayer:
+    def __init__(self):
+        ...
