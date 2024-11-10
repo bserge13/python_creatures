@@ -27,3 +27,16 @@ def test_turn_attrs():
 
     assert turn.player2 == player2
     assert turn.player2.name == 'Karl'
+
+def test_turn_class_functions():
+    assert turn.type() == 'basic'
+
+    winner = turn.winner()
+    assert winner.name == 'Loki'
+
+    turn.pile_cards()
+    assert turn.spoils_of_war == [card1, card3]
+    turn.award_spoils(winner)
+
+    assert player1.deck == [card2, card5, card8, card1, card3]
+    assert player2.deck == [card4, card6, card7]
