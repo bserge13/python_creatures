@@ -38,5 +38,5 @@ def test_turn_class_functions():
     assert turn.spoils_of_war == [card1, card3]
     turn.award_spoils(winner)
 
-    assert player1.deck == [card2, card5, card8, card1, card3]
-    assert player2.deck == [card4, card6, card7]
+    assert player1.deck.cards == [card2, card5, card8, card1, card3]
+    assert player2.deck.cards == [card4, card6, card7]

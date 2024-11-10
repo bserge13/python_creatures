@@ -9,23 +9,18 @@ class Turn:
             if self.player1.deck.rank_of_card_at(2) == self.player2.deck.rank_of_card_at(2):
                 return 'mutually_assured_destruction'
             return 'war'
-        else:
-            return 'basic'
+        return 'basic'
 
     def winner(self):
-        players = [self.player1, self.player2]
         if self.type() == 'basic':
-            # return the player whose card is higher than their opponents'
-            winner = sorted(players, key=lambda player: player.deck.rank_card_at(0), reverse=True)
-            return winner[0]
+            return max(self.player1, self.player2, key=lambda player: player.deck.rank_card_at(0))
         elif self.type() == 'war':
-            # return the player whose .deck.rank_of_card(2) is higher than their opponents'
-            # winner = sorted(players, key=lambda player: player.deck.rank_card_at(2), reverse=True)
-            # return winner[0]
-            ...
-        else:
-            # return 'No Winner'
-            ...
+            return max(self.player1, self.player2, key=lambda player: player.deck.rank_card_at(2))
+        return 'No Winner'
 
     def pile_cards(self):
-        self.spoils_of_war.append(self.player1.remove_card() and self.player2.remove_card())
+        self.spoils_of_war.extend([self.player1.remove_card(), self.player2.remove_card()])
+
+    def award_spoils(self, winner):
+        for card in self.spoils_of_war:
+            winner.deck.add_card(card)
