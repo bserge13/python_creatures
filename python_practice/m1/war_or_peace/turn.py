@@ -13,9 +13,11 @@ class Turn:
             return 'basic'
 
     def winner(self):
+        players = [self.player1, self.player2]
         if self.type() == 'basic':
-            ...
             # return the player whose card is higher than their opponents'
+            winner = sorted(players, key=lambda player: player.deck.rank_card_at(0), reverse=True)
+            return winner[0]
         elif self.type() == 'war':
             ...
             # return the player whose .deck.rank_of_card(2) is higher than their opponents'
