@@ -19,7 +19,13 @@ class Turn:
             winner = sorted(players, key=lambda player: player.deck.rank_card_at(0), reverse=True)
             return winner[0]
         elif self.type() == 'war':
-            ...
             # return the player whose .deck.rank_of_card(2) is higher than their opponents'
+            # winner = sorted(players, key=lambda player: player.deck.rank_card_at(2), reverse=True)
+            # return winner[0]
+            ...
         else:
-            return 'No Winner'
+            # return 'No Winner'
+            ...
+
+    def pile_cards(self):
+        self.spoils_of_war.append(self.player1.remove_card() and self.player2.remove_card())

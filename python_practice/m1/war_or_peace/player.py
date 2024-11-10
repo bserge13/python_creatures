@@ -4,7 +4,7 @@ class Player:
         self.deck = deck
 
     def has_lost(self):
-        return len(self.deck) == 0
+        return len(self.deck.cards) == 0
 
     def remove_card(self):
-        return self.cards.pop(0)
+        return self.deck.cards.pop(0)
