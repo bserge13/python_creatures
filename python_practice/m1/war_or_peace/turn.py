@@ -22,10 +22,10 @@ class Turn:
         if self.type() == 'basic':
             self.spoils_of_war.extend([self.player1.remove_card(), self.player2.remove_card()])
         elif self.type() == 'war':
-            self.spoils_of_war.extend([self.player1.remove_card() for _ in range(3)])
-            self.spoils_of_war.extend([self.player2.remove_card() for _ in range(3)])
+            self.spoils_of_war.extend(self.player1.remove_card() for _ in range(3))
+            self.spoils_of_war.extend(self.player2.remove_card() for _ in range(3))
         elif self.type() == 'mutually_assured_destruction':
-            for _ in range(4):
+            for _ in range(3):
                 self.player1.remove_card()
                 self.player2.remove_card()
 
