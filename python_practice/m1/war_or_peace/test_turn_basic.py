@@ -28,7 +28,7 @@ def test_turn_attrs():
     assert turn.player2 == player2
     assert turn.player2.name == 'Karl'
 
-def test_turn_class_functions():
+def test_turn_type_basic():
     assert turn.type() == 'basic'
 
     winner = turn.winner()

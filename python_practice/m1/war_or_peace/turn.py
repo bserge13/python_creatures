@@ -6,7 +6,7 @@ class Turn:
 
     def type(self):
         if self.player1.deck.rank_card_at(0) == self.player2.deck.rank_card_at(0):
-            if self.player1.deck.rank_of_card_at(2) == self.player2.deck.rank_of_card_at(2):
+            if self.player1.deck.rank_card_at(2) == self.player2.deck.rank_card_at(2):
                 return 'mutually_assured_destruction'
             return 'war'
         return 'basic'
@@ -19,7 +19,15 @@ class Turn:
         return 'No Winner'
 
     def pile_cards(self):
-        self.spoils_of_war.extend([self.player1.remove_card(), self.player2.remove_card()])
+        if self.type() == 'basic':
+            self.spoils_of_war.extend([self.player1.remove_card(), self.player2.remove_card()])
+        elif self.type() == 'war':
+            self.spoils_of_war.extend([self.player1.remove_card() for _ in range(3)])
+            self.spoils_of_war.extend([self.player2.remove_card() for _ in range(3)])
+        elif self.type() == 'mutually_assured_destruction':
+            for _ in range(4):
+                self.player1.remove_card()
+                self.player2.remove_card()
 
     def award_spoils(self, winner):
         for card in self.spoils_of_war:
