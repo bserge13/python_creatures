@@ -24,18 +24,18 @@ all_cards = [
 ]
 
 def main():
-    player1 = input('Enter Player 1 name: ')
-    player2 = input('Enter Player 2 name: ')
+    name1 = input('Enter Player 1 name: ')
+    name2 = input('Enter Player 2 name: ')
     start = input(
-        f"Welcome to War! (or Peace) This game will be played with 52 cards.\nThe players today are {player1} and {player2}.\nType 'GO' to start the game! ").upper()
+        f"Welcome to War! (or Peace) This game will be played with 52 cards.\nThe players today are {name1} and {name2}.\nType 'GO' to start the game! ").upper()
     if start == 'GO':
-        print(new_game(player1, player2))
+        print(new_game(name1, name2))
 
-def new_game(player1, player2):
+def new_game(name1, name2):
     full_deck = random.shuffle(all_cards)
     half = len(full_deck) // 2
-    player1 = player.Player(player1, full_deck[:half])
-    player2 = player.Player(player2, full_deck[half:])
+    player1 = player.Player(name1, full_deck[:half])
+    player2 = player.Player(name2, full_deck[half:])
 
 if __name__ == '__main__':
     main()
