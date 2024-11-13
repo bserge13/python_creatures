@@ -6,13 +6,13 @@ class Deck:
         return self.cards[pos].rank
 
     def high_ranking_cards(self):
-        cards = []
-        for card in self.cards:
-            if card.rank >= 11:
-                cards.append(card)
-        return cards
     # list comprehension refactor
-        # return [card for card in self.cards if card.rank >= 11]
+        return [card for card in self.cards if card.rank >= 11]
+        # cards = []
+        # for card in self.cards:
+        #     if card.rank >= 11:
+        #         cards.append(card)
+        # return cards
 
     def percent_high_ranking(self):
         return round(float(len(self.high_ranking_cards()) * 100) / float(len(self.cards)), 2)
