@@ -8,14 +8,35 @@ def test_has_name():
     assert pirate1.name == 'Jane'
     assert pirate2.name == 'Blackbeard'
 
-def test_default_scallywag():
-    ...
+def test_default_job():
+    pirate1 = Pirate('Jack')
+    pirate2 = Pirate('Jeff', 'cook')
 
-def test_not_default_cursed():
-    ...
+    assert pirate1.job == 'Scallywag'
+    assert pirate2.job == 'cook'
 
-def test_has_booty():
-    ...
+def test_becomes_cursed():
+    pirate = Pirate('James')
 
-def test_robs_ships():
-    ...
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.heinous_count == 1
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.heinous_count == 2
+    assert pirate.is_cursed() == False
+    pirate.commit_heinous_act()
+    assert pirate.is_cursed() == True
+    assert pirate.heinous_count == 3
+
+def test_robs_booty_from_ships():
+    pirate = Pirate('Jane')
+
+    assert pirate.booty == 0
+    pirate.rob_ship()
+    assert pirate.booty == 1
+
+    while pirate.booty < 100:
+        pirate.rob_ship()
+
+    assert pirate.booty == 100

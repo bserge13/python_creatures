@@ -3,6 +3,6 @@ class Vampire:
         self.name = name 
         self.pet = pet
         self.thirsty = True
-    
+
     def drink(self):
         self.thirsty = False

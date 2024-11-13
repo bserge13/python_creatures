@@ -4,10 +4,10 @@ class Hobbit:
         self.disposition = disposition
         self.age = age
         self.short = True
-    
+
     def celebrate_birthday(self):
         self.age += 1
-    
+
     def is_adult(self):
         return self.age >= 33
 

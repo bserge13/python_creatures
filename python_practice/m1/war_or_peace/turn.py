@@ -6,8 +6,7 @@ class Turn:
 
     def type(self):
         if self.player1.deck.rank_card_at(0) == self.player2.deck.rank_card_at(0):
-            # if self.player1.deck.rank_card_at(2) == self.player2.deck.rank_card_at(2):
-            if len(self.player1.deck.cards) > 2 and len(self.player2.deck.cards) > 2 and self.player1.deck.rank_card_at(2) == self.player2.deck.rank_card_at(2):
+            if self.player1.deck.rank_card_at(2) == self.player2.deck.rank_card_at(2):
                 return 'mutually_assured_destruction'
             return 'war'
         return 'basic'

@@ -54,4 +54,3 @@ def test_victims_limit():
     assert medusa.statues == [victim2, victim3, victim4]
     assert victim1.is_stoned() == False
     assert victim4.is_stoned() == True
-
