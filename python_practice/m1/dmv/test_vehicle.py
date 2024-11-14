@@ -10,9 +10,13 @@ def test_vehicle_attrs():
     assert cruz.make == 'Chevrolet'
     assert cruz.model == 'Cruz'
     assert cruz.engine == ':ice'
+    assert cruz.plate_type == None
+    assert cruz.registration_date == None
 
     assert bolt.vin == '987654321abcdefgh'
     assert bolt.year == 2019
     assert bolt.make == 'Chevrolet'
     assert bolt.model == 'Bolt'
     assert bolt.engine == ':ev'
+    assert bolt.plate_type == None
+    assert bolt.registration_date == None

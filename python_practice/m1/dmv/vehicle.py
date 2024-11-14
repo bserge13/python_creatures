@@ -5,3 +5,5 @@ class Vehicle:
         self.make = vehicle_data['make']
         self.model = vehicle_data['model'] 
         self.engine = vehicle_data['engine'] 
+        self.plate_type = None
+        self.registration_date = None
