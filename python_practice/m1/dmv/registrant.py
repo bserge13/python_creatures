@@ -4,4 +4,9 @@ class Registrant:
         self.age = age
         self.permit = permit
         self.license_data = {'written': False, 'license': False, 'renewed': False}
-        
+
+    def has_permit(self):
+        return self.permit
+
+    def earn_permit(self):
+        self.permit = True
