@@ -9,3 +9,14 @@ class Facility:
 
     def add_service(self, service):
         self.services.append(service)
+
+    def register_vehicle(self, vehicle):
+        if 'Vehicle Registration' in self.services:
+            self.registered_vehicles.append(vehicle)
+            vehicle.register()
+            if vehicle.is_antique():
+                self.collected_fees += 25
+            elif vehicle.is_electric():
+                self.collected_fees += 200
+            else:
+                self.collected_fees += 100
