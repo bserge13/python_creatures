@@ -26,3 +26,6 @@ def test_class_functions():
 
     reg1.take_road_test()
     assert reg1.license_data == {'written': True, 'license': True, 'renewed': False}
+
+    reg1.renew_license()
+    assert reg1.license_data == {'written': True, 'license': True, 'renewed': True}
