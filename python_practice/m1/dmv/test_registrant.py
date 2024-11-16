@@ -16,3 +16,10 @@ def test_registrant_class():
     assert reg2.license_data == {'written': False, 'license': False, 'renewed': False}
     reg2.earn_permit() 
     assert reg2.has_permit() == True
+
+def test_class_functions():
+    reg1 = Registrant('Loki', 18, True)
+
+    assert reg1.license_data == {'written': False, 'license': False, 'renewed': False}
+    reg1.take_written()
+    assert reg1.license_data == {'written': True, 'license': False, 'renewed': False}
