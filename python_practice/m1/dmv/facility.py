@@ -28,3 +28,7 @@ class Facility:
     def administer_road_test(self, registrant):
         if 'Road Test' in self.services and registrant.license_data['written'] == True:
             registrant.take_road_test()
+
+    def renew_drivers_license(self, registrant):
+        if 'Renew License' in self.services and registrant.license_data['license'] == True:
+            registrant.renew_license()

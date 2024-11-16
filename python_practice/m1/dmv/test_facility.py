@@ -92,3 +92,20 @@ def test_road_test():
     assert registrant1.license_data == {'written': True, 'license': True, 'renewed': False}
     facility1.administer_road_test(registrant2)
     assert registrant2.license_data == {'written': True, 'license': True, 'renewed': False}
+
+def test_renew_license():
+    facility1.renew_drivers_license(registrant1)
+    assert registrant1.license_data == {'written': True, 'license': True, 'renewed': False}
+    facility1.add_service('Written Test')
+    facility1.add_service('Road Test')
+    facility1.add_service('Renew License')
+    facility1.services == ['Written Test', 'Road Test', 'Renew License']
+    facility1.renew_drivers_license(registrant1)
+    assert registrant1.license_data == {'written': True, 'license': True, 'renewed': True}
+
+    facility1.renew_drivers_license(registrant3)
+    assert registrant3.license_data == {'written': False, 'license': False, 'renewed': False}
+
+    facility1.renew_drivers_license(registrant2)
+    assert registrant2.license_data == {'written': True, 'license': True, 'renewed': True}
+

@@ -16,3 +16,6 @@ class Registrant:
 
     def take_road_test(self):
         self.license_data['license'] = True
+
+    def renew_license(self):
+        self.license_data['renewed'] = True
