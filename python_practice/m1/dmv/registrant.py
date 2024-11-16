@@ -10,3 +10,6 @@ class Registrant:
 
     def earn_permit(self):
         self.permit = True
+
+    def take_written(self):
+        self.license_data['written'] = True

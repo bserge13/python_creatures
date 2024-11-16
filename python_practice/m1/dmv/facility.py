@@ -20,3 +20,7 @@ class Facility:
                 self.collected_fees += 200
             else:
                 self.collected_fees += 100
+
+    def administer_written_test(self, registrant):
+        if 'Written Test' in self.services and registrant.permit == True and registrant.age >= 16:
+            registrant.take_written()
