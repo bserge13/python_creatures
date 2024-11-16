@@ -13,3 +13,6 @@ class Registrant:
 
     def take_written(self):
         self.license_data['written'] = True
+
+    def take_road_test(self):
+        self.license_data['license'] = True
