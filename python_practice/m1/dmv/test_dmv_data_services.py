@@ -9,17 +9,17 @@ def test_api_services():
     mo_services = dmv.mo_dmv_office_locations()
 
     assert isinstance(wa_services, list)
-    first = wa_services[0]
-    assert isinstance(first, dict)
+    first_wa = wa_services[0]
+    assert isinstance(first_wa, dict)
 
     assert isinstance(co_services, list)
-    first = co_services[0]
-    assert isinstance(first, dict)
+    first_co = co_services[0]
+    assert isinstance(first_co, dict)
 
     assert isinstance(ny_services, list)
-    first = ny_services[0]
-    assert isinstance(first, dict)
+    first_ny = ny_services[0]
+    assert isinstance(first_ny, dict)
 
     assert isinstance(mo_services, list)
-    first = mo_services[0]
-    assert isinstance(first, dict)
+    first_mo = mo_services[0]
+    assert isinstance(first_mo, dict)
