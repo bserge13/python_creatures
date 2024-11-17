@@ -1,0 +1,3 @@
+class Facilityfactory:
+    def create_facilities(self, location):
+        ...
