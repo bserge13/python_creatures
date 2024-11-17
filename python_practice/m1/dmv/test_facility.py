@@ -108,4 +108,3 @@ def test_renew_license():
 
     facility1.renew_drivers_license(registrant2)
     assert registrant2.license_data == {'written': True, 'license': True, 'renewed': True}
-
