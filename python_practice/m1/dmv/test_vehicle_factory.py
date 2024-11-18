@@ -19,3 +19,5 @@ def test_create_vehicles():
     assert hasattr(first_wa, 'make')
     assert hasattr(first_wa, 'model')
     assert hasattr(first_wa, 'engine')
+    assert hasattr(first_wa, 'plate_type')
+    assert hasattr(first_wa, 'registration_date')
