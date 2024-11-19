@@ -17,3 +17,15 @@ class Cell:
         self.fired_upon = True
         if self.ship != None:
             self.ship.hit()
+
+    def render(self, show_cell=False):
+        if self.fired_upon == False and self.ship != None and show_cell == True:
+            return 'S'
+        elif self.fired_upon == False:
+            return '.'
+        elif self.fired_upon == True and self.ship != None and self.ship.is_sunk() == True:
+            return 'X'
+        elif self.fired_upon == True and self.ship == None:
+            return 'M'
+        elif self.fired_upon == True and self.ship != None:
+            return 'H'
