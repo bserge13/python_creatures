@@ -19,13 +19,24 @@ class Cell:
             self.ship.hit()
 
     def render(self, show_cell=False):
-        if self.fired_upon == False and self.ship != None and show_cell == True:
-            return 'S'
-        elif self.fired_upon == False:
+        # if self.fired_upon == False and self.ship != None and show_cell == True:
+        #     return 'S'
+        # elif self.fired_upon == False:
+        #     return '.'
+        # elif self.fired_upon == True and self.ship != None and self.ship.is_sunk() == True:
+        #     return 'X'
+        # elif self.fired_upon == True and self.ship == None:
+        #     return 'M'
+        # elif self.fired_upon == True and self.ship != None:
+        #     return 'H'
+        if not self.fired_upon:
+            if self.ship and show_cell:
+                return 'S'
             return '.'
-        elif self.fired_upon == True and self.ship != None and self.ship.is_sunk() == True:
-            return 'X'
-        elif self.fired_upon == True and self.ship == None:
-            return 'M'
-        elif self.fired_upon == True and self.ship != None:
+
+        if self.ship:
+            if self.ship.is_sunk():
+                return 'X'
             return 'H'
+
+        return 'M'
