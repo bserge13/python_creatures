@@ -14,8 +14,7 @@ def test_valid_coordinate():
     board = Board()
 
     assert board.valid_coordinate('A1') == True
+    assert board.valid_coordinate('D4') == True
     assert board.valid_coordinate('A5') == False
-    assert board.valid_coordinate('B4') == True
-    assert board.valid_coordinate('A0') == False
-    assert board.valid_coordinate('C3') == True
-    assert board.valid_coordinate('D6') == False
+    assert board.valid_coordinate('E1') == False
+    assert board.valid_coordinate('A22') == False
