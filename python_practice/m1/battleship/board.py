@@ -22,4 +22,4 @@ class Board:
         }
 
     def valid_coordinate(self, coordinate):
-        ...
+        return coordinate in self.cells
