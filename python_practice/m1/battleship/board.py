@@ -1,4 +1,5 @@
-from cell import Cell 
+from cell import Cell
+from ship import Ship
 
 class Board:
     def __init__(self):
@@ -22,4 +23,7 @@ class Board:
         }
 
     def valid_coordinate(self, coordinate):
-        return coordinate in self.cells
+        return coordinate in self.cells and self.cells[coordinate].is_fired_upon() == False
+
+    def valid_placement(self, ship, coordinates):
+        ...
