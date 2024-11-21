@@ -21,3 +21,10 @@ def test_valid_coordinate():
 def test_valid_placement():
     cruiser = Ship('Cruiser', 3)
     submarine = Ship('Submarine', 2)
+    coordinates1 = ['A1', 'A2']
+    coordinates2 = ['A2', 'A3', 'A4']
+
+    assert board.valid_placement(cruiser, coordinates1) == False
+    assert board.valid_placement(submarine, coordinates2) == False
+    assert board.valid_placement(cruiser, coordinates2) == True
+    assert board.valid_placement(submarine, coordinates1) == True

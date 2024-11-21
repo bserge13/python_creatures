@@ -26,4 +26,4 @@ class Board:
         return coordinate in self.cells and self.cells[coordinate].is_fired_upon() == False
 
     def valid_placement(self, ship, coordinates):
-        ...
+        return len(coordinates) == ship.length
