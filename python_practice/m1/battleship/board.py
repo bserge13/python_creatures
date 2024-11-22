@@ -26,7 +26,7 @@ class Board:
         return coordinate in self.cells and self.cells[coordinate].is_fired_upon() == False
 
     def valid_placement(self, ship, coordinates):
-        return len(coordinates) == ship.length and self.consec_horizontal(coordinates) and self.consec_vertical(coordinates)
+        return len(coordinates) == ship.length and self.consec_horizontal(coordinates) or self.consec_vertical(coordinates)
 
     def consec_horizontal(self, coordinates):
         # row = [int(coord[1]) for coord in coordinates]
@@ -34,4 +34,11 @@ class Board:
         ...
 
     def consec_vertical(self, coordinates):
-        ...
+        coords = []
+        for coord in coordinates:
+            column,row = coord[0], coord[1:]
+            coords.append(column)
+        if coords == sorted(coords):
+            return True
+        else:
+            return False
