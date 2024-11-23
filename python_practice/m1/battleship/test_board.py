@@ -40,3 +40,10 @@ def test_valid_placement_consecutive():
     assert board.valid_placement(submarine, coordinates2) == False
     assert board.valid_placement(cruiser, coordinates3) == False
     assert board.valid_placement(submarine, coordinates4) == False
+
+def test_valid_placement_diagonal():
+    coordinates1 = ['A1', 'B2', 'C3']
+    coordinates2 = ['C2', 'D3']
+
+    assert board.valid_placement(cruiser, coordinates1) == False
+    assert board.valid_placement(submarine, coordinates2) == False
