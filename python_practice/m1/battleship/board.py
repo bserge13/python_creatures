@@ -26,19 +26,34 @@ class Board:
         return coordinate in self.cells and self.cells[coordinate].is_fired_upon() == False
 
     def valid_placement(self, ship, coordinates):
-        return len(coordinates) == ship.length and self.consec_horizontal(coordinates) or self.consec_vertical(coordinates)
-
-    def consec_horizontal(self, coordinates):
-        # row = [int(coord[1]) for coord in coordinates]
-        # return row
-        ...
-
-    def consec_vertical(self, coordinates):
-        coords = []
-        for coord in coordinates:
-            column,row = coord[0], coord[1:]
-            coords.append(column)
-        if coords == sorted(coords):
-            return True
+        # return len(coordinates) == ship.length and self.consec_horizontal(coordinates) and self.consec_vertical(coordinates)
+        if len(coordinates) == ship.length:
+            rows = []
+            columns = []
+            for coord in coordinates:
+                row,column = coord[0], int(coord[1:])
+                rows.append(row)
+                columns.append(column)
+            return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
         else:
             return False
+
+    # def consec_horizontal(self, coordinates):
+    #     coords = []
+    #     for coord in coordinates:
+    #         column,row = coord[0], coord[1:]
+    #         coords.append(row)
+    #     if coords == sorted(row):
+    #         return True
+    #     else:
+    #         return False
+
+    # def consec_vertical(self, coordinates):
+    #     coords = []
+    #     for coord in coordinates:
+    #         column,row = coord[0], coord[1:]
+    #         coords.append(column)
+    #     if coords == sorted(coords):
+    #         return True
+    #     else:
+    #         return False
