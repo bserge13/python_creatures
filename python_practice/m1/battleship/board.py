@@ -30,9 +30,15 @@ class Board:
             rows = []
             columns = []
             for coord in coordinates:
-                row,column = coord[0], int(coord[1:])
+                row,column = coord[0], int(coord[1])
                 rows.append(row)
                 columns.append(column)
             return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
         else:
             return False
+
+    def consec_horizontal(self, coordinates):
+        ...
+
+    def consec_vertical(self, coordinates):
+        ...
