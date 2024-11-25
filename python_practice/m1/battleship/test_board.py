@@ -47,3 +47,10 @@ def test_valid_placement_diagonal():
 
     assert board.valid_placement(cruiser, coordinates1) == False
     assert board.valid_placement(submarine, coordinates2) == False
+
+def test_valid_placement_passing():
+    coordinates1 = ['B1', 'C1', 'D1']
+    coordinates2 = ['A1', 'A2']
+
+    assert board.valid_placement(cruiser, coordinates1) == True
+    assert board.valid_placement(submarine, coordinates2) == True
