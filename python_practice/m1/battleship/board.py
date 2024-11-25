@@ -1,5 +1,4 @@
 from cell import Cell
-from ship import Ship
 
 class Board:
     def __init__(self):
@@ -26,26 +25,30 @@ class Board:
         return coordinate in self.cells and not self.cells[coordinate].is_fired_upon()
 
     def valid_placement(self, ship, coordinates):
-        if len(coordinates) != ship.length:
-            return False
-        if not self.consec_coords(coordinates):
-            return False
-        for coord in coordinates:
-            if not self.valid_coordinate(coord):
-                return False
-        return True
-
-    def consec_coords(self, coordinates):
         rows = []
         columns = []
         for coord in coordinates:
             row,column = coord[0], int(coord[1])
             rows.append(row)
             columns.append(column)
+
+        if len(coordinates) != ship.length:
+            return False
+
+        if not self.consec_coords(rows, columns):
+            return False
+
+        if self.diagonal_coords(rows, columns):
+            return False
+
+        for coord in coordinates:
+            if not self.valid_coordinate(coord):
+                return False
+        return True
+
+    def consec_coords(self, rows, columns):
         return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
 
-    # def consec_horizontal(self, coordinates):
-    #     return 
-
-    # def consec_vertical(self, coordinates):
-    #     return 
+    def diagonal_coords(self, rows, columns):
+        if rows[0] != rows[1]:
+            return columns[0] != columns[1]
