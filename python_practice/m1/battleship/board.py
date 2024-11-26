@@ -49,6 +49,7 @@ class Board:
     def consec_coords(self, rows, columns):
         return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
 
-    def diagonal_coords(self, rows, columns):
-        if rows[0] != rows[1]:
-            return columns[0] != columns[1]
+    # def diagonal_coords(self, rows, columns):
+    #     if rows[0] != rows[1]:
+    #         for i in range(len(columns))
+    #         return columns[0] != columns[1]
