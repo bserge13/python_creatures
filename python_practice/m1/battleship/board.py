@@ -57,7 +57,7 @@ class Board:
         # 1
         numbers = [int(coord[1]) for coord in coordinates]
         # [1, 2, 3]
-        return numbers == sorted(numbers) and [letter == i for i in letters]
+        return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
 
     # def consec_coords(self, coordinates):
         # rows = []
