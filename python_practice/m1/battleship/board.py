@@ -35,29 +35,48 @@ class Board:
         if not (self.consec_vertical(coordinates)) or not (self.consec_horizontal(coordinates)):
             return False
 
+        # if not and empty coordinate cell:
+            # return False
         return True
 
     def consec_vertical(self, coordinates):
-        letter = coordinates[0][0]
+        # letter = coordinates[0][1]
         # 'A'
         letters = [coord[0] for coord in coordinates]
         # ['A', 'B', 'C']
         number = int(coordinates[0][1])
         # 1
-        numbers = [int(coord[1]) for coord in coordinates]
+        # numbers = [int(coord[1]) for coord in coordinates]
         # [1, 2, 3]
-        return letters == sorted(letters) and [number == i for i in numbers]
+        letters.sort()
+        consec = letters == [chr(ord(letters[0]) + i) for i in range(len(letters))]
+
+        same_column = all(coord[1] == number for coord in coordinates)
+        
+        return consec and same_column 
+        
+        
+        # if letters != sorted(letters):
+        #     return False
+        # return numbers == list(range(min(numbers), max(numbers) + 1))
+        # return all(coord[1] == number for coord in coordinates)
+
 
     def consec_horizontal(self, coordinates):
-        letter = coordinates[0][0]
+        row_letter = coordinates[0][0]
         # 'A'
-        letters = [coord[0] for coord in coordinates]
+        # letters = [coord[0] for coord in coordinates]
         # ['A', 'B', 'C']
-        number = int(coordinates[0][1])
+        # number = int(coordinates[0][1])
         # 1
         numbers = [int(coord[1]) for coord in coordinates]
         # [1, 2, 3]
-        return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
+        # return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
+        numbers.sort()
+        consec = numbers == list(range(numbers[0], numbers[0] + len(numbers)))
+        same_row = all(coord[0] == row_letter for coord in coordinates)
+
+        return consec and same_row
 
     # def consec_coords(self, coordinates):
         # rows = []
