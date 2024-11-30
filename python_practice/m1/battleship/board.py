@@ -55,12 +55,10 @@ class Board:
         
         return consec and same_column 
         
-        
         # if letters != sorted(letters):
         #     return False
         # return numbers == list(range(min(numbers), max(numbers) + 1))
         # return all(coord[1] == number for coord in coordinates)
-
 
     def consec_horizontal(self, coordinates):
         row_letter = coordinates[0][0]
