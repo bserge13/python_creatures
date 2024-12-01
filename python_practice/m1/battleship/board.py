@@ -84,3 +84,4 @@ class Board:
         #     rows.append(row)
         #     columns.append(column)
     # return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
+
