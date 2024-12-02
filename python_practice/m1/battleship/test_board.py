@@ -54,17 +54,3 @@ def test_valid_placement_passing():
 
     assert board.valid_placement(cruiser, coordinates1) == True
     assert board.valid_placement(submarine, coordinates2) == True
-
-# def test_consec_vertical():
-#     coordinates1 = ['B1', 'C1', 'D1']
-#     coordinates2 = ['A1', 'A2']
-
-#     assert board.consec_vertical(coordinates1) == True
-#     assert board.consec_vertical(coordinates2) == False
-
-# def test_consec_horizontal():
-#     coordinates1 = ['B1', 'C1', 'D1']
-#     coordinates2 = ['A1', 'A2']
-
-#     assert board.consec_horizontal(coordinates1) == True
-#     assert board.consec_horizontal(coordinates2) == False
