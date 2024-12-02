@@ -32,56 +32,67 @@ class Board:
             if not self.valid_coordinate(coord):
                 return False
 
-        if not (self.consec_vertical(coordinates)) or not (self.consec_horizontal(coordinates)):
+        # if not (self.consec_vertical(coordinates)) or not (self.consec_horizontal(coordinates)):
+        if not self.consec_coords(coordinates):
             return False
 
         # if not and empty coordinate cell:
             # return False
         return True
 
-    def consec_vertical(self, coordinates):
-        # letter = coordinates[0][1]
-        # 'A'
-        letters = [coord[0] for coord in coordinates]
-        # ['A', 'B', 'C']
-        number = int(coordinates[0][1])
-        # 1
-        # numbers = [int(coord[1]) for coord in coordinates]
-        # [1, 2, 3]
-        letters.sort()
-        consec = letters == [chr(ord(letters[0]) + i) for i in range(len(letters))]
+    def consec_coords(self, coordinates):
+        column_letters = []
+        column_nums = []
+        for coord in coordinates:
+            letter,number = coord[0], int(coord[1])
+            column_letters.append(letter)
+            column_nums.append(number)
+        return column_letters == sorted(column_letters) and column_nums == sorted(column_nums) and all(column_nums[i] == column_nums[i-1] + 1 for i in range(1, len(column_nums))) and not self.diagonal(column_letters, column_nums)
 
-        same_column = all(coord[1] == number for coord in coordinates)
+    def diagonal(self, column_letters, column_nums):
+        ...
+
+
+
+
+
+
+
+
+
+    # def consec_vertical(self, coordinates):
+    #     # letter = coordinates[0][1]
+    #     # 'A'
+    #     letters = [coord[0] for coord in coordinates]
+    #     # ['A', 'B', 'C']
+    #     number = int(coordinates[0][1])
+    #     # 1
+    #     # numbers = [int(coord[1]) for coord in coordinates]
+    #     # [1, 2, 3]
+    #     letters.sort()
+    #     consec = letters == [chr(ord(letters[0]) + i) for i in range(len(letters))]
+
+    #     same_column = all(coord[1] == number for coord in coordinates)
         
-        return consec and same_column 
+    #     return consec and same_column 
         
-        # if letters != sorted(letters):
-        #     return False
-        # return numbers == list(range(min(numbers), max(numbers) + 1))
-        # return all(coord[1] == number for coord in coordinates)
+    #     # if letters != sorted(letters):
+    #     #     return False
+    #     # return numbers == list(range(min(numbers), max(numbers) + 1))
+    #     # return all(coord[1] == number for coord in coordinates)
 
-    def consec_horizontal(self, coordinates):
-        row_letter = coordinates[0][0]
-        # 'A'
-        # letters = [coord[0] for coord in coordinates]
-        # ['A', 'B', 'C']
-        # number = int(coordinates[0][1])
-        # 1
-        numbers = [int(coord[1]) for coord in coordinates]
-        # [1, 2, 3]
-        # return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
-        numbers.sort()
-        consec = numbers == list(range(numbers[0], numbers[0] + len(numbers)))
-        same_row = all(coord[0] == row_letter for coord in coordinates)
+    # def consec_horizontal(self, coordinates):
+    #     row_letter = coordinates[0][0]
+    #     # 'A'
+    #     # letters = [coord[0] for coord in coordinates]
+    #     # ['A', 'B', 'C']
+    #     # number = int(coordinates[0][1])
+    #     # 1
+    #     numbers = [int(coord[1]) for coord in coordinates]
+    #     # [1, 2, 3]
+    #     # return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
+    #     numbers.sort()
+    #     consec = numbers == list(range(numbers[0], numbers[0] + len(numbers)))
+    #     same_row = all(coord[0] == row_letter for coord in coordinates)
 
-        return consec and same_row
-
-    # def consec_coords(self, coordinates):
-        # rows = []
-        # columns = []
-        # for coord in coordinates:
-        #     row,column = coord[0], int(coord[1])
-        #     rows.append(row)
-        #     columns.append(column)
-    # return rows == sorted(rows) and columns == sorted(columns) and all(columns[i] == columns[i-1] + 1 for i in range(1, len(columns)))
-
+    #     return consec and same_row

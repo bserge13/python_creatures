@@ -41,30 +41,30 @@ def test_valid_placement_consecutive():
     assert board.valid_placement(cruiser, coordinates3) == False
     assert board.valid_placement(submarine, coordinates4) == False
 
-# def test_valid_placement_diagonal():
-#     coordinates1 = ['A1', 'B2', 'C3']
-#     coordinates2 = ['C2', 'D3']
+def test_valid_placement_diagonal():
+    coordinates1 = ['A1', 'B2', 'C3']
+    coordinates2 = ['C2', 'D3']
 
-#     assert board.valid_placement(cruiser, coordinates1) == False
-#     assert board.valid_placement(submarine, coordinates2) == False
+    assert board.valid_placement(cruiser, coordinates1) == False
+    assert board.valid_placement(submarine, coordinates2) == False
 
-# def test_valid_placement_passing():
+def test_valid_placement_passing():
+    coordinates1 = ['B1', 'C1', 'D1']
+    coordinates2 = ['A1', 'A2']
+
+    assert board.valid_placement(cruiser, coordinates1) == True
+    assert board.valid_placement(submarine, coordinates2) == True
+
+# def test_consec_vertical():
 #     coordinates1 = ['B1', 'C1', 'D1']
 #     coordinates2 = ['A1', 'A2']
 
-#     assert board.valid_placement(cruiser, coordinates1) == True
-#     assert board.valid_placement(submarine, coordinates2) == True
+#     assert board.consec_vertical(coordinates1) == True
+#     assert board.consec_vertical(coordinates2) == False
 
-def test_consec_vertical():
-    coordinates1 = ['B1', 'C1', 'D1']
-    coordinates2 = ['A1', 'A2']
+# def test_consec_horizontal():
+#     coordinates1 = ['B1', 'C1', 'D1']
+#     coordinates2 = ['A1', 'A2']
 
-    assert board.consec_vertical(coordinates1) == True
-    assert board.consec_vertical(coordinates2) == False
-
-def test_consec_horizontal():
-    coordinates1 = ['B1', 'C1', 'D1']
-    coordinates2 = ['A1', 'A2']
-
-    assert board.consec_horizontal(coordinates1) == True
-    assert board.consec_horizontal(coordinates2) == False
+#     assert board.consec_horizontal(coordinates1) == True
+#     assert board.consec_horizontal(coordinates2) == False
