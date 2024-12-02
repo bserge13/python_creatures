@@ -42,66 +42,17 @@ class Board:
     def consec_coords(self, coordinates):
         coord_letters = [coord[0] for coord in coordinates]
         coord_nums = [int(coord[1]) for coord in coordinates]
-        # return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
         # horizontal = all(coord_letters[0] == coord for coord in coord_letters) and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1))
         horizontal = all(coord_letters[0] == coord for coord in coord_letters) and coord_nums == list(range(min(coord_nums), min(coord_nums) + len(coord_nums)))
         # vertical = all(coord_nums[0] == num for num in coord_nums) and sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
         vertical = all(coord_nums[0] == num for num in coord_nums) and coord_letters == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
 
-        if self.diagonal(coord_letters, coord_nums):
-            return False
-        # return horizontal or vertical and not self.diagonal(coord_letters, coord_nums)
-        return horizontal or vertical
+        return horizontal or vertical and not self.diagonal(coord_letters, coord_nums)
+        # return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
 
     def diagonal(self, coord_letters, coord_nums):
         # if coord_letters[0] != coord_letters[1]:
         #     if coord_nums[1] == coord_nums[0] + 1:
         #         return True
         # return False
-        if sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1)):
-            return True
-        return False
-
-
-
-
-
-
-
-
-    # def consec_vertical(self, coordinates):
-    #     # letter = coordinates[0][1]
-    #     # 'A'
-    #     letters = [coord[0] for coord in coordinates]
-    #     # ['A', 'B', 'C']
-    #     number = int(coordinates[0][1])
-    #     # 1
-    #     # numbers = [int(coord[1]) for coord in coordinates]
-    #     # [1, 2, 3]
-    #     letters.sort()
-    #     consec = letters == [chr(ord(letters[0]) + i) for i in range(len(letters))]
-
-    #     same_column = all(coord[1] == number for coord in coordinates)
-        
-    #     return consec and same_column 
-        
-    #     # if letters != sorted(letters):
-    #     #     return False
-    #     # return numbers == list(range(min(numbers), max(numbers) + 1))
-    #     # return all(coord[1] == number for coord in coordinates)
-
-    # def consec_horizontal(self, coordinates):
-    #     row_letter = coordinates[0][0]
-    #     # 'A'
-    #     # letters = [coord[0] for coord in coordinates]
-    #     # ['A', 'B', 'C']
-    #     # number = int(coordinates[0][1])
-    #     # 1
-    #     numbers = [int(coord[1]) for coord in coordinates]
-    #     # [1, 2, 3]
-    #     # return all(numbers[i] == numbers[i-1] + 1 for i in range(1, len(numbers))) and [letter == i for i in letters]
-    #     numbers.sort()
-    #     consec = numbers == list(range(numbers[0], numbers[0] + len(numbers)))
-    #     same_row = all(coord[0] == row_letter for coord in coordinates)
-
-    #     return consec and same_row
+        return sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1))
