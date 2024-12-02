@@ -32,7 +32,6 @@ class Board:
             if not self.valid_coordinate(coord):
                 return False
 
-        # if not (self.consec_vertical(coordinates)) or not (self.consec_horizontal(coordinates)):
         if not self.consec_coords(coordinates):
             return False
 
@@ -41,20 +40,27 @@ class Board:
         return True
 
     def consec_coords(self, coordinates):
-        coord_letters = []
-        coord_nums = []
-        for coord in coordinates:
-            letter,number = coord[0], int(coord[1])
-            coord_letters.append(letter)
-            coord_nums.append(number)
-        return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
+        coord_letters = [coord[0] for coord in coordinates]
+        coord_nums = [int(coord[1]) for coord in coordinates]
+        # return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
+        # horizontal = all(coord_letters[0] == coord for coord in coord_letters) and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1))
+        horizontal = all(coord_letters[0] == coord for coord in coord_letters) and coord_nums == list(range(min(coord_nums), min(coord_nums) + len(coord_nums)))
+        # vertical = all(coord_nums[0] == num for num in coord_nums) and sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
+        vertical = all(coord_nums[0] == num for num in coord_nums) and coord_letters == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
+
+        if self.diagonal(coord_letters, coord_nums):
+            return False
+        # return horizontal or vertical and not self.diagonal(coord_letters, coord_nums)
+        return horizontal or vertical
 
     def diagonal(self, coord_letters, coord_nums):
-        if coord_letters[0] != coord_letters[1]:
-            if coord_nums[1] == coord_nums[0] + 1:
-                return True
+        # if coord_letters[0] != coord_letters[1]:
+        #     if coord_nums[1] == coord_nums[0] + 1:
+        #         return True
+        # return False
+        if sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1)):
+            return True
         return False
-
 
 
 
