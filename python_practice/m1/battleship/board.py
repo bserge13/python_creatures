@@ -41,16 +41,19 @@ class Board:
         return True
 
     def consec_coords(self, coordinates):
-        column_letters = []
-        column_nums = []
+        coord_letters = []
+        coord_nums = []
         for coord in coordinates:
             letter,number = coord[0], int(coord[1])
-            column_letters.append(letter)
-            column_nums.append(number)
-        return column_letters == sorted(column_letters) and column_nums == sorted(column_nums) and all(column_nums[i] == column_nums[i-1] + 1 for i in range(1, len(column_nums))) and not self.diagonal(column_letters, column_nums)
+            coord_letters.append(letter)
+            coord_nums.append(number)
+        return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
 
-    def diagonal(self, column_letters, column_nums):
-        ...
+    def diagonal(self, coord_letters, coord_nums):
+        if coord_letters[0] != coord_letters[1]:
+            if coord_nums[1] == coord_nums[0] + 1:
+                return True
+        return False
 
 
 
