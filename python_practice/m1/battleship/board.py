@@ -42,17 +42,11 @@ class Board:
     def consec_coords(self, coordinates):
         coord_letters = [coord[0] for coord in coordinates]
         coord_nums = [int(coord[1]) for coord in coordinates]
-        # horizontal = all(coord_letters[0] == coord for coord in coord_letters) and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1))
+
         horizontal = all(coord_letters[0] == coord for coord in coord_letters) and coord_nums == list(range(min(coord_nums), min(coord_nums) + len(coord_nums)))
-        # vertical = all(coord_nums[0] == num for num in coord_nums) and sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
         vertical = all(coord_nums[0] == num for num in coord_nums) and coord_letters == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))]
 
         return horizontal or vertical and not self.diagonal(coord_letters, coord_nums)
-        # return coord_letters == sorted(coord_letters) and coord_nums == sorted(coord_nums) and all(coord_nums[i] == coord_nums[i-1] + 1 for i in range(1, len(coord_nums))) and not self.diagonal(coord_letters, coord_nums)
 
     def diagonal(self, coord_letters, coord_nums):
-        # if coord_letters[0] != coord_letters[1]:
-        #     if coord_nums[1] == coord_nums[0] + 1:
-        #         return True
-        # return False
-        return sorted(coord_letters) == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and sorted(coord_nums) == list(range(min(coord_nums), max(coord_nums) + 1))
+        return coord_letters == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and coord_nums == list(range(min(coord_nums), max(coord_nums) + 1))
