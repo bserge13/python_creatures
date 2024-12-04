@@ -66,3 +66,8 @@ def test_place_ship():
     assert cell2.ship == cruiser
     assert cell3.ship == cruiser
     assert cell3.ship == cell2.ship
+
+def test_overlapping_ships():
+    board.place(cruiser, ['A1', 'A2', 'A3'])
+    assert board.valid_placement(submarine, ['A1', 'B1']) != True
+    assert board.valid_placement(submarine, ['A1', 'B1']) == False
