@@ -54,3 +54,14 @@ def test_valid_placement_passing():
 
     assert board.valid_placement(cruiser, coordinates1) == True
     assert board.valid_placement(submarine, coordinates2) == True
+
+def test_place_ship():
+    cell1 = board.cells['A1']
+    cell2 = board.cells['A2']
+    cell3 = board.cells['A3']
+
+    board.place(cruiser, ['A1', 'A2', 'A3'])
+
+    assert cell1.ship == cruiser
+    assert cell2.ship == cruiser
+    assert cell3.ship == cruiser
