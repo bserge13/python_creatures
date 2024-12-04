@@ -65,3 +65,4 @@ def test_place_ship():
     assert cell1.ship == cruiser
     assert cell2.ship == cruiser
     assert cell3.ship == cruiser
+    assert cell3.ship == cell2.ship
