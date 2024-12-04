@@ -21,9 +21,6 @@ class Board:
             'D4': Cell('D4'),
         }
 
-    def valid_coordinate(self, coordinate):
-        return coordinate in self.cells and not self.cells[coordinate].is_fired_upon()
-
     def valid_placement(self, ship, coordinates):
         if len(coordinates) != ship.length:
             return False
@@ -35,9 +32,14 @@ class Board:
         if not self.consec_coords(coordinates):
             return False
 
-        # if not and empty coordinate cell:
-            # return False
+        for coord in coordinates:
+            if not self.cells[coord].is_empty():
+                return False
+
         return True
+
+    def valid_coordinate(self, coordinate):
+        return coordinate in self.cells and not self.cells[coordinate].is_fired_upon()
 
     def consec_coords(self, coordinates):
         coord_letters = [coord[0] for coord in coordinates]
@@ -50,3 +52,8 @@ class Board:
 
     def diagonal(self, coord_letters, coord_nums):
         return coord_letters == [chr(ord(coord_letters[0]) + i) for i in range(len(coord_letters))] and coord_nums == list(range(min(coord_nums), max(coord_nums) + 1))
+
+    def place(self, ship, coordinates):
+        if self.valid_placement(ship, coordinates):
+            for coord in coordinates:
+                self.cells[coord].place_ship(ship)
