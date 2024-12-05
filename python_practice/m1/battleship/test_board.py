@@ -123,3 +123,14 @@ def test_render_board_hit():
         board.cells[coord].fire_upon()
 
     assert board.render(True) ==  "  1 2 3 4 \nA . . M . \nB . . H . \nC . . H . \nD . . S . \n"
+
+def test_render_board_sunk():
+    board = Board()
+
+    board.place(submarine, ['C3', 'C4'])
+    
+    coordinates = ['C2', 'C3', 'C4']
+    for coord in coordinates:
+        board.cells[coord].fire_upon()
+
+    assert board.render(True) ==  "  1 2 3 4 \nA . . . . \nB . . . . \nC . M X X \nD . . . . \n"
