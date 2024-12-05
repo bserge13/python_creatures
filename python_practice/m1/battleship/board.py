@@ -57,3 +57,19 @@ class Board:
         if self.valid_placement(ship, coordinates):
             for coord in coordinates:
                 self.cells[coord].place_ship(ship)
+
+    def render(self, show_board=False):
+        if show_board == False:
+            visual_board = "  1 2 3 4 \n"
+            visual_board += "A " f"{self.cells['A1'].render()} " + f"{self.cells['A2'].render()} " + f"{self.cells['A3'].render()} " + f"{self.cells['A4'].render()} \n" 
+            visual_board += "B " f"{self.cells['B1'].render()} " + f"{self.cells['B2'].render()} " + f"{self.cells['B3'].render()} " + f"{self.cells['B4'].render()} \n" 
+            visual_board += "C " f"{self.cells['C1'].render()} " + f"{self.cells['C2'].render()} " + f"{self.cells['C3'].render()} " + f"{self.cells['C4'].render()} \n" 
+            visual_board += "D " f"{self.cells['D1'].render()} " + f"{self.cells['D2'].render()} " + f"{self.cells['D3'].render()} " + f"{self.cells['D4'].render()} \n" 
+            return visual_board
+        elif show_board == True:
+            visual_board = "  1 2 3 4 \n"
+            visual_board += "A " f"{self.cells['A1'].render(True)} " + f"{self.cells['A2'].render(True)} " + f"{self.cells['A3'].render(True)} " + f"{self.cells['A4'].render(True)} \n" 
+            visual_board += "B " f"{self.cells['B1'].render(True)} " + f"{self.cells['B2'].render(True)} " + f"{self.cells['B3'].render(True)} " + f"{self.cells['B4'].render(True)} \n" 
+            visual_board += "C " f"{self.cells['C1'].render(True)} " + f"{self.cells['C2'].render(True)} " + f"{self.cells['C3'].render(True)} " + f"{self.cells['C4'].render(True)} \n" 
+            visual_board += "D " f"{self.cells['D1'].render(True)} " + f"{self.cells['D2'].render(True)} " + f"{self.cells['D3'].render(True)} " + f"{self.cells['D4'].render(True)} \n" 
+            return visual_board
