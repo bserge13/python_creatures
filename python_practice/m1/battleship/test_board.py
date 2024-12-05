@@ -74,7 +74,14 @@ def test_overlapping_ships():
     assert board.valid_placement(submarine, ['A1', 'B1']) == False
 
 def test_render_board():
-    board.place(cruiser, ['A1', 'A2', 'A3'])
+    board1 = Board()
+    board2 = Board()
 
-    assert board.render() == "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
-    assert board.render(True) ==  "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
+    board1.place(cruiser, ['A1', 'A2', 'A3'])
+    board2.place(submarine, ['C3', 'D3'])
+
+    assert board1.render() == "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
+    assert board1.render(True) ==  "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
+
+    assert board2.render() == "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
+    assert board2.render(True) ==  "  1 2 3 4 \nA . . . . \nB . . . . \nC . . S . \nD . . S . \n"
