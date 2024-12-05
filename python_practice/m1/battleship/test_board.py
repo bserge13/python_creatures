@@ -3,17 +3,20 @@ from board import Board
 from cell import Cell
 from ship import Ship
 
-board = Board()
 cruiser = Ship('Cruiser', 3)
 submarine = Ship('Submarine', 2)
 
 def test_class_attrs():
+    board = Board()
+
     assert hasattr(board, 'cells')
     assert isinstance(board.cells, dict)
     assert isinstance(board.cells['A1'], Cell)
     assert len(board.cells) == 16
 
 def test_valid_coordinate():
+    board = Board()
+
     assert board.valid_coordinate('A1') == True
     assert board.valid_coordinate('D4') == True
     assert board.valid_coordinate('A5') == False
@@ -21,6 +24,8 @@ def test_valid_coordinate():
     assert board.valid_coordinate('A22') == False
 
 def test_valid_placement_length():
+    board = Board()
+
     coordinates1 = ['A1', 'A2']
     coordinates2 = ['A2', 'A3', 'A4']
 
@@ -31,6 +36,8 @@ def test_valid_placement_length():
     assert board.valid_placement(submarine, coordinates1) == True
 
 def test_valid_placement_consecutive():
+    board = Board()
+
     coordinates1 = ['A1', 'A2', 'A4']
     coordinates2 = ['A1', 'C1']
     coordinates3 = ['A3', 'A2', 'A1']
@@ -42,6 +49,8 @@ def test_valid_placement_consecutive():
     assert board.valid_placement(submarine, coordinates4) == False
 
 def test_valid_placement_diagonal():
+    board = Board()
+
     coordinates1 = ['A1', 'B2', 'C3']
     coordinates2 = ['C2', 'D3']
 
@@ -49,6 +58,8 @@ def test_valid_placement_diagonal():
     assert board.valid_placement(submarine, coordinates2) == False
 
 def test_valid_placement_passing():
+    board = Board()
+
     coordinates1 = ['B1', 'C1', 'D1']
     coordinates2 = ['A1', 'A2']
 
@@ -56,6 +67,8 @@ def test_valid_placement_passing():
     assert board.valid_placement(submarine, coordinates2) == True
 
 def test_place_ship():
+    board = Board()
+
     cell1 = board.cells['A1']
     cell2 = board.cells['A2']
     cell3 = board.cells['A3']
@@ -68,6 +81,8 @@ def test_place_ship():
     assert cell3.ship == cell2.ship
 
 def test_overlapping_ships():
+    board = Board()
+
     board.place(cruiser, ['A1', 'A2', 'A3'])
 
     assert board.valid_placement(submarine, ['A1', 'B1']) != True
@@ -87,6 +102,8 @@ def test_render_board_placement():
     assert board2.render(True) ==  "  1 2 3 4 \nA . . . . \nB . . . . \nC . . S . \nD . . S . \n"
 
 def test_render_board_miss():
+    board = Board()
+
     board.place(cruiser, ['A1', 'A2', 'A3'])
     assert board.render(True) ==  "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
 
@@ -94,3 +111,15 @@ def test_render_board_miss():
     board.cells['C3'].fire_upon()
     board.cells['D1'].fire_upon()
     assert board.render(True) ==  "  1 2 3 4 \nA S S S M \nB . . . . \nC . . M . \nD M . . . \n"
+
+def test_render_board_hit():
+    board = Board()
+
+    board.place(cruiser, ['B3', 'C3', 'D3'])
+    assert board.render(True) ==  "  1 2 3 4 \nA . . . . \nB . . S . \nC . . S . \nD . . S . \n"
+
+    coordinates = ['A3', 'B3', 'C3']
+    for coord in coordinates:
+        board.cells[coord].fire_upon()
+
+    assert board.render(True) ==  "  1 2 3 4 \nA . . M . \nB . . H . \nC . . H . \nD . . S . \n"
