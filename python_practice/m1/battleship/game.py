@@ -1,4 +1,4 @@
-import random 
+from random import sample, choice
 from board import Board
 from ship import Ship
 
@@ -46,6 +46,17 @@ def turn():
     else:
         print('Please enter a valid coordinate.')
         turn()
+
+    comp_choice = choice(user_board.cells)
+    while user_board.cells[comp_choice].is_fired_upon() == False:
+        comp_choice = choice(user_board.cells)
+    user_board.cells[comp_choice].fire_upon()
+
+    comp_result = user_board.cells[comp_choice].render(True)
+    if comp_result == 'X':
+        user_sunk_ships += 1
+    print(f"Your shot on {user_choice} was a {user_result}.")
+    print(f"My shot on {comp_choice} was a {comp_result}.")
 
 def game_over():
     if user_sunk_ships == 2:
