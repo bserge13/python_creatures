@@ -10,10 +10,22 @@ def main():
 
 def game_setup():
     comp_board_setup()
-    
+    user_board_setup()
+    turn()
+    game_over()
 
 def comp_board_setup():
     ...
+
+def user_board_setup():
+    ...
+
+def turn():
+    ...
+
+def game_over():
+    ...
+
 
 if __name__ == "__main__":
     main()
