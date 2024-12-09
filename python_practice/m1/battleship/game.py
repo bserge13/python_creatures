@@ -6,10 +6,14 @@ def main():
         if ui == 'q':
             print("Come back when you're ready to lose...")
         elif ui == 'p':
-            return(board_setup())
+            return(game_setup())
 
-def board_setup():
-    print('so far so good?')
+def game_setup():
+    comp_board_setup()
+    
+
+def comp_board_setup():
+    ...
 
 if __name__ == "__main__":
     main()
