@@ -37,11 +37,11 @@ def turn():
     print(comp_board.render())
     print('=============PLAYER BOARD============')
     print(user_board.render(True))
-    ui = input('Enter the coordinate for your shot:')
+    ui = input('Enter the coordinate for your shot:').upcase()
     if comp_board.valid_coordinate(ui):
         comp_board.cells[ui].fire_upon()
-        result = comp_board.cells[ui].render()
-        if result == 'X':
+        ui_result = comp_board.cells[ui].render()
+        if ui_result == 'X':
             comp_sunk_ships += 1
     else:
         print('Please enter a valid coordinate.')
@@ -55,8 +55,9 @@ def turn():
     comp_result = user_board.cells[comp_choice].render(True)
     if comp_result == 'X':
         user_sunk_ships += 1
-    print(f"Your shot on {user_choice} was a {user_result}.")
+    print(f"Your shot on {ui} was a {ui_result}.")
     print(f"My shot on {comp_choice} was a {comp_result}.")
+    game_over()
 
 def game_over():
     if user_sunk_ships == 2:
