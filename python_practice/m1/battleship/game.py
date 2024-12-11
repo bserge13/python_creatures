@@ -18,16 +18,19 @@ def main():
         if ui == 'q':
             print("Come back when you're ready to lose...")
         elif ui == 'p':
-            return(game_setup())
+            return(game_play())
 
-def game_setup():
+def game_play():
     comp_board_setup()
     user_board_setup()
     turn()
     game_over()
 
 def comp_board_setup():
-    ...
+    comp_cruiser_placement()
+    comp_sub_placement()
+    print(comp_board.render())
+    print('I have laid out my ships on the grid.\nYou now need to lay out your two ships.\nThe Cruiser is three units long and the Submarine is two units long.')
 
 def user_board_setup():
     ...
