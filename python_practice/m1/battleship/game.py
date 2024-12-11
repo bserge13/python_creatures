@@ -32,15 +32,46 @@ def comp_board_setup():
     print(comp_board.render())
     print('I have laid out my ships on the grid.\nYou now need to lay out your two ships.\nThe Cruiser is three units long and the Submarine is two units long.')
 
+def comp_cruiser_placement():
+    valid_coordinates = sample(comp_board.cells.keys(), 3)
+    while not comp_board.valid_placement(comp_cruiser, valid_coordinates):
+        valid_coordinates = sample(comp_board.cells.keys(), 3)
+    comp_board.place(comp_cruiser, valid_coordinates)
+
+def comp_sub_placement():
+    valid_coordinates = sample(comp_board.cells.keys(), 2)
+    while not comp_board.valid_placement(comp_sub, valid_coordinates):
+        valid_coordinates = sample(comp_board.cells.keys(), 2)
+    comp_board.place(comp_sub, valid_coordinates)
+
 def user_board_setup():
-    ...
+    user_cruiser_placement()
+    user_sub_placement()
+
+def user_cruiser_placement():
+    while True:
+        ui_coords = input('Enter squares for your Cruiser (3 spaces): ').upper().split()
+        if user_board.valid_placement(user_cruiser, ui_coords):
+            user_board.place(user_cruiser, ui_coords)
+            break
+        else:
+            print('Those are invalid coordinates. Please try again.')
+
+def user_sub_placement():
+    while True:
+        ui_coords = input('Enter squares for your Submarine (2 spaces): ').upper().split()
+        if user_board.valid_placement(user_sub, ui_coords):
+            user_board.place(user_sub, ui_coords)
+            break
+        else:
+            print('Those are invalid coordinates. Please try again.')
 
 def turn():
     print('=============COMPUTER BOARD=============')
     print(comp_board.render())
     print('=============PLAYER BOARD============')
     print(user_board.render(True))
-    ui = input('Enter the coordinate for your shot:').upcase()
+    ui = input('Enter the coordinate for your shot:').upper()
     if comp_board.valid_coordinate(ui):
         comp_board.cells[ui].fire_upon()
         ui_result = comp_board.cells[ui].render()
