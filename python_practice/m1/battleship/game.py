@@ -17,6 +17,7 @@ def main():
         ui = input('Welcome to BATTLESHIP\nEnter p to play. Enter q to quit. ')
         if ui == 'q':
             print("Come back when you're ready to lose...")
+            break
         elif ui == 'p':
             game_play()
 
@@ -66,6 +67,8 @@ def user_sub_placement():
             print('Those are invalid coordinates. Please try again.')
 
 def turn():
+    global comp_sunk_ships, user_sunk_ships
+
     print('=============COMPUTER BOARD=============')
     print(comp_board.render())
     print('=============PLAYER BOARD============')
@@ -83,7 +86,7 @@ def turn():
         return
 
     comp_choice = random.choice(list(user_board.cells.keys()))
-    while user_board.cells[comp_choice].is_fired_upon() == False:
+    while user_board.cells[comp_choice].is_fired_upon():
         comp_choice = random.choice(list(user_board.cells.keys()))
     user_board.cells[comp_choice].fire_upon()
 
@@ -94,15 +97,18 @@ def turn():
     print(f"Your shot on {ui} was a {ui_result}.")
     print(f"My shot on {comp_choice} was a {comp_result}.")
 
-    game_over()
+    if game_over():
+        return 
+    turn()
 
 def game_over():
     if user_sunk_ships == 2:
         print("You can't defeat me you poor excuse for a Sailor!")
+        return True
     elif comp_sunk_ships == 2:
         print('I am not a worthy Sailor, for I am but a computer!')
-    else:
-        turn()
+        return True
+    return False 
 
 
 
