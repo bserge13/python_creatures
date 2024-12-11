@@ -1,4 +1,4 @@
-from random import sample, choice
+import random
 from board import Board
 from ship import Ship
 
@@ -18,13 +18,12 @@ def main():
         if ui == 'q':
             print("Come back when you're ready to lose...")
         elif ui == 'p':
-            return(game_play())
+            game_play()
 
 def game_play():
     comp_board_setup()
     user_board_setup()
     turn()
-    game_over()
 
 def comp_board_setup():
     comp_cruiser_placement()
@@ -33,15 +32,15 @@ def comp_board_setup():
     print('I have laid out my ships on the grid.\nYou now need to lay out your two ships.\nThe Cruiser is three units long and the Submarine is two units long.')
 
 def comp_cruiser_placement():
-    valid_coordinates = sample(comp_board.cells.keys(), 3)
+    valid_coordinates = random.sample(list(comp_board.cells.keys()), k=3)
     while not comp_board.valid_placement(comp_cruiser, valid_coordinates):
-        valid_coordinates = sample(comp_board.cells.keys(), 3)
+        valid_coordinates = random.sample(list(comp_board.cells.keys()), k=3)
     comp_board.place(comp_cruiser, valid_coordinates)
 
 def comp_sub_placement():
-    valid_coordinates = sample(comp_board.cells.keys(), 2)
+    valid_coordinates = random.sample(list(comp_board.cells.keys()), k=2)
     while not comp_board.valid_placement(comp_sub, valid_coordinates):
-        valid_coordinates = sample(comp_board.cells.keys(), 2)
+        valid_coordinates = random.sample(list(comp_board.cells.keys()), k=2)
     comp_board.place(comp_sub, valid_coordinates)
 
 def user_board_setup():
@@ -71,7 +70,8 @@ def turn():
     print(comp_board.render())
     print('=============PLAYER BOARD============')
     print(user_board.render(True))
-    ui = input('Enter the coordinate for your shot:').upper()
+
+    ui = input('Enter the coordinate for your shot: ').upper()
     if comp_board.valid_coordinate(ui):
         comp_board.cells[ui].fire_upon()
         ui_result = comp_board.cells[ui].render()
@@ -80,17 +80,20 @@ def turn():
     else:
         print('Please enter a valid coordinate.')
         turn()
+        return
 
-    comp_choice = choice(user_board.cells)
+    comp_choice = random.choice(list(user_board.cells.keys()))
     while user_board.cells[comp_choice].is_fired_upon() == False:
-        comp_choice = choice(user_board.cells)
+        comp_choice = random.choice(list(user_board.cells.keys()))
     user_board.cells[comp_choice].fire_upon()
 
     comp_result = user_board.cells[comp_choice].render(True)
     if comp_result == 'X':
         user_sunk_ships += 1
+
     print(f"Your shot on {ui} was a {ui_result}.")
     print(f"My shot on {comp_choice} was a {comp_result}.")
+
     game_over()
 
 def game_over():
