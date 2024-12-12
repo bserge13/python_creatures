@@ -34,12 +34,14 @@ def comp_board_setup():
 
 def comp_cruiser_placement():
     valid_coordinates = random.sample(list(comp_board.cells.keys()), k=3)
+
     while not comp_board.valid_placement(comp_cruiser, valid_coordinates):
         valid_coordinates = random.sample(list(comp_board.cells.keys()), k=3)
     comp_board.place(comp_cruiser, valid_coordinates)
 
 def comp_sub_placement():
     valid_coordinates = random.sample(list(comp_board.cells.keys()), k=2)
+
     while not comp_board.valid_placement(comp_sub, valid_coordinates):
         valid_coordinates = random.sample(list(comp_board.cells.keys()), k=2)
     comp_board.place(comp_sub, valid_coordinates)
@@ -68,6 +70,14 @@ def user_sub_placement():
 
 def turn():
     global comp_sunk_ships, user_sunk_ships
+    """
+    turn() function controls the overall gameplay for a user, and relies 
+    on the state of our variables for conditional guidance. Without defining these 
+    variables globally inside our function we get an Unbound Local error:
+
+    'UnboundLocalError: cannot access local variable 'comp_sunk_ships' 
+    where it is not associated with a value'
+    """
 
     print('=============COMPUTER BOARD=============')
     print(comp_board.render())
@@ -85,6 +95,11 @@ def turn():
         turn()
         return
 
+    """
+    the use of a return with no value will exit the function while 
+    recursion of turn() is being called
+    """
+
     comp_choice = random.choice(list(user_board.cells.keys()))
     while user_board.cells[comp_choice].is_fired_upon():
         comp_choice = random.choice(list(user_board.cells.keys()))
@@ -100,6 +115,9 @@ def turn():
     if game_over():
         return 
     turn()
+    """
+    conditional for continuation of the game
+    """
 
 def game_over():
     if user_sunk_ships == 2:
@@ -109,8 +127,6 @@ def game_over():
         print('I am not a worthy Sailor, for I am but a computer!')
         return True
     return False 
-
-
 
 if __name__ == "__main__":
     main()
