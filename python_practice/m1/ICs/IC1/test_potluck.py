@@ -41,3 +41,13 @@ def test_iteration_3():
     assert potluck.get_all_from_category('appetizer') == [salad, pizza]
     assert potluck.get_all_from_category('appetizer')[0] == salad
     assert potluck.get_all_from_category('appetizer')[0].name == salad.name
+
+def test_iteration_4():
+    potluck = Potluck('7-13-18')
+    
+    salad = Dish('Couscous Salad', 'appetizer')
+    pizza = Dish('Summer Pizza', 'appetizer')
+    pork = Dish('Roast Pork', 'entre')
+    meatballs = Dish('Cocktail Meatballs', 'entre')
+    candy = Dish('Candy Salad', 'dessert')
+    dip = Dish('Bean Dip', 'appetizer')
