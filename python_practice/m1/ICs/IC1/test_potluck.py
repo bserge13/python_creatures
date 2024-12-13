@@ -15,10 +15,29 @@ def test_potluck_attrs():
     assert potluck.dishes == []
     
     salad = Dish('Couscous Salad', 'appetizer')
-    meatball = Dish('Cocktail Meatballs', 'entre')
+    meatballs = Dish('Cocktail Meatballs', 'entre')
     
     potluck.add_dish(salad)
-    potluck.add_dish(meatball)
+    potluck.add_dish(meatballs)
     
-    assert potluck.dishes == [salad, meatball]
+    assert potluck.dishes == [salad, meatballs]
     assert len(potluck.dishes) == 2
+
+def test_iteration_3():
+    potluck = Potluck('7-13-18')
+    
+    salad = Dish('Couscous Salad', 'appetizer')
+    pizza = Dish('Summer Pizza', 'appetizer')
+    pork = Dish('Roast Pork', 'entre')
+    meatballs = Dish('Cocktail Meatballs', 'entre')
+    candy = Dish('Candy Salad', 'dessert')
+
+    potluck.add_dish(salad)
+    potluck.add_dish(pizza)
+    potluck.add_dish(pork)
+    potluck.add_dish(meatballs)
+    potluck.add_dish(candy)
+
+    assert potluck.get_all_from_category('appetizer') == [salad, pizza]
+    assert potluck.get_all_from_category('appetizer')[0] == salad
+    assert potluck.get_all_from_category('appetizer')[0].name == salad.name
