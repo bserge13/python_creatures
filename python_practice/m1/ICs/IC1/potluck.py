@@ -34,3 +34,6 @@ class Potluck:
         # for dish in self.dishes:
         #     ...
         # return menu
+        
+    def ratio(self, category):
+        ...

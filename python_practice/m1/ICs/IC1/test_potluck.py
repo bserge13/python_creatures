@@ -63,4 +63,4 @@ def test_iteration_4():
                             'entre': [meatballs.name, pork.name],
                             'dessert': [candy.name]
                             }
-    # assert potluck.ratio('appetizer') == 50.0
+    assert potluck.ratio('appetizer') == 50.0
