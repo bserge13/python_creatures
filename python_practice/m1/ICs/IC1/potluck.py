@@ -12,3 +12,25 @@ class Potluck:
             if dish.category == category:
                 category_dishes.append(dish)
         return category_dishes
+    
+    def menu(self):
+        menu = {
+            'appetizer': [],
+            'entre': [],
+            'dessert': []
+        }
+        for dish in self.dishes:
+            if dish.category in menu:
+                menu[dish.category].append(dish.name)
+        
+        for item in menu:
+            menu[item].sort()
+        
+        return menu
+        
+        # categories = [set(dish.category for dish in self.dishes)]
+        # menu = dict(categories)
+        
+        # for dish in self.dishes:
+        #     ...
+        # return menu

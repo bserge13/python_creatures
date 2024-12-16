@@ -51,3 +51,16 @@ def test_iteration_4():
     meatballs = Dish('Cocktail Meatballs', 'entre')
     candy = Dish('Candy Salad', 'dessert')
     dip = Dish('Bean Dip', 'appetizer')
+
+    potluck.add_dish(salad)
+    potluck.add_dish(pizza)
+    potluck.add_dish(pork)
+    potluck.add_dish(meatballs)
+    potluck.add_dish(candy)
+    potluck.add_dish(dip)
+
+    assert potluck.menu() == {'appetizer': [dip.name, salad.name, pizza.name], 
+                            'entre': [meatballs.name, pork.name],
+                            'dessert': [candy.name]
+                            }
+    # assert potluck.ratio('appetizer') == 50.0
