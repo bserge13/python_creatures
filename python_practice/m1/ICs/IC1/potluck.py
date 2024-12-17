@@ -36,4 +36,5 @@ class Potluck:
         # return menu
         
     def ratio(self, category):
-        ...
+        return len([dish for dish in self.dishes if dish.category == category])/len(self.dishes) * 100
+        
