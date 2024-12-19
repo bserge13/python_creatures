@@ -27,14 +27,7 @@ class Potluck:
             menu[item].sort()
         
         return menu
-        
-        # categories = [set(dish.category for dish in self.dishes)]
-        # menu = dict(categories)
-        
-        # for dish in self.dishes:
-        #     ...
-        # return menu
-        
+    
     def ratio(self, category):
         return len([dish for dish in self.dishes if dish.category == category])/len(self.dishes) * 100
         
