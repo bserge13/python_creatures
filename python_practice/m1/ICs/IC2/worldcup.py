@@ -16,3 +16,15 @@ class WorldCup:
             for team in self.teams if not team.is_eliminated()
             for player in team.players if player.position == position
         ]
+    
+    def all_players_by_position(self):
+        lineup = {
+            'forward': [],
+            'midfieldr': [],
+            'defender': []
+        }
+        for team in self.teams:
+            for player in team.players:
+                if player.position in lineup:
+                    lineup[player.position] = player
+        return lineup

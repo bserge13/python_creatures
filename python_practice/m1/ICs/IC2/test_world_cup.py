@@ -51,3 +51,25 @@ def test_itr_3():
     
     croatia.eliminated = True
     assert world_cup.active_players_by_position('midfielder') == [pogba]
+
+def test_itr_4():
+    france = Team('France')
+    croatia = Team('Croatia')
+
+    mbappe = Player({'name': 'Kylian Mbappe', 'position': 'forward'})
+    pogba = Player({'name': 'Paul Pogba', 'position': 'midfielder'})
+    modric = Player({'name': 'Luka Modric', 'position': 'midfielder'})
+    vida = Player({'name': 'Domagoj Vida', 'position': 'defender'})
+
+    world_cup = WorldCup(2018, [france, croatia])
+
+    france.add_player(mbappe)
+    france.add_player(pogba)
+    croatia.add_player(modric)
+    croatia.add_player(vida)
+
+    world_cup.all_players_by_position() == {
+        'forward': [mbappe],
+        'midfielder': [pogba, modric],
+        'defender': [vida]
+    }
