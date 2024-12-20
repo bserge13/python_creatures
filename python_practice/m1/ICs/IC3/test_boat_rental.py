@@ -40,3 +40,19 @@ def test_itr_2():
         kayak2: patrick,
         board: eugene
     }
+
+def test_itr_3():
+    dock = Dock('The Rowing Dock', 3)
+    
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+    
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+    
+    dock.rent(kayak1, patrick)
+    dock.rent(kayak2, patrick)
+    dock.rent(board, eugene)
+    
+    assert dock.charge()
