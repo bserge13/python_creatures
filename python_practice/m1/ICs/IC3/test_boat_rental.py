@@ -1,6 +1,7 @@
 import pytest
 from boat import Boat
 from renter import Renter
+from dock import Dock
 
 def test_itr_1():
     kayak = Boat('kayak', 20)
@@ -16,3 +17,9 @@ def test_itr_1():
     
     assert renter.name == 'Patrick Star'
     assert renter.credit_card_number == '4242424242424242'
+
+def test_itr_2():
+    dock = Dock('The Rowing Dock', 3)
+    
+    assert dock.name == 'The Rowing Dock'
+    assert dock.max_rental_time == 3
