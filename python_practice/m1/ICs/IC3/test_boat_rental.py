@@ -21,5 +21,22 @@ def test_itr_1():
 def test_itr_2():
     dock = Dock('The Rowing Dock', 3)
     
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+    
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+
     assert dock.name == 'The Rowing Dock'
     assert dock.max_rental_time == 3
+    
+    dock.rent(kayak1, patrick)
+    dock.rent(kayak2, patrick)
+    dock.rent(board, eugene)
+    
+    assert dock.rental_log == {
+        kayak1: patrick,
+        kayak2: patrick,
+        board: eugene
+    }
