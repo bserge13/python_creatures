@@ -45,6 +45,7 @@ def test_itr_3():
     dock = Dock('The Rowing Dock', 3)
     
     kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
     board = Boat('stand_up_paddle_board', 15)
     
     patrick = Renter('Patrick Star', '4242424242424242')
@@ -52,7 +53,14 @@ def test_itr_3():
     
     dock.rent(kayak1, patrick)
     dock.rent(kayak1, patrick)
+    
     dock.rent(board, eugene)
+    
+    dock.rent(kayak2, eugene)
+    dock.rent(kayak2, eugene)
+    dock.rent(kayak2, eugene)
+    dock.rent(kayak2, eugene)
     
     assert dock.charge(kayak1) == {'card_number': patrick.credit_card_number, 'amount': 40}
     assert dock.charge(board) == {'card_number': eugene.credit_card_number, 'amount': 15}
+    assert dock.charge(kayak2) == {'card_number': eugene.credit_card_number, 'amount': 60}
