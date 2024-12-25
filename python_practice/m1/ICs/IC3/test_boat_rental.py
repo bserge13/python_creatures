@@ -42,9 +42,9 @@ def test_itr_2():
     dock.rent(board, eugene)
     
     assert dock.rental_log == {
-        kayak1: patrick,
-        kayak2: patrick,
-        board: eugene
+        kayak1: {'renter': patrick, 'rented': True},
+        kayak2: {'renter': patrick, 'rented': True},
+        board: {'renter': eugene, 'rented': True}
     }
 
 def test_itr_3():    
@@ -63,4 +63,25 @@ def test_itr_3():
     assert dock.charge(kayak2) == {'card_number': eugene.credit_card_number, 'amount': 60}
 
 def test_itr_4():
-    ...
+    dock.rent(kayak1, patrick)
+    
+    dock.rent(board, eugene)
+    dock.rent(board, eugene)
+    
+    dock.rent(kayak2, eugene)
+    dock.rent(kayak2, eugene)
+    dock.rent(kayak2, eugene)
+    
+    assert dock.rental_log == {
+        kayak1: {'renter': patrick, 'rented': True},
+        kayak2: {'renter': patrick, 'rented': True},
+        board: {'renter': eugene, 'rented': True}
+    }
+
+    dock.return_boat(kayak1)
+
+    assert dock.rental_log == {
+        kayak1: {'renter': patrick, 'rented': False},
+        kayak2: {'renter': patrick, 'rented': True},
+        board: {'renter': eugene, 'rented': True}
+    }

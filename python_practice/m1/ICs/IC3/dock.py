@@ -5,13 +5,16 @@ class Dock:
         self.rental_log = {}
     
     def rent(self, boat, renter):
-        self.rental_log[boat] = renter
+        self.rental_log[boat] = {'renter': renter, 'rented': True}
         boat.add_hour()
     
     def charge(self, boat):
         if boat in self.rental_log:
-            card = self.rental_log[boat].credit_card_number
+            card = self.rental_log[boat]['renter'].credit_card_number
             if boat.hours_rented > self.max_rental_time:
                 return {'card_number': card, 'amount': boat.price_per_hour * self.max_rental_time}
             else:
                 return {'card_number': card, 'amount': boat.price_per_hour * boat.hours_rented}
+    
+    def return_boat(self, boat):
+        self.rental_log[boat]['rented'] = False
