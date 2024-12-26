@@ -3,25 +3,13 @@ from boat import Boat
 from renter import Renter
 from dock import Dock
 
-dock = Dock('The Rowing Dock', 3)
+def test_itr_1():
+    dock = Dock('The Rowing Dock', 3)
 
-kayak1 = Boat('kayak', 20)
-kayak2 = Boat('kayak', 20)
-board = Boat('stand_up_paddle_board', 15)
+    kayak1 = Boat('kayak', 20)
+    patrick = Renter('Patrick Star', '4242424242424242')
+    kayak1 = Boat('kayak', 20)
 
-patrick = Renter('Patrick Star', '4242424242424242')
-eugene = Renter('Eugene Krabs', '1313131313131313')
-
-dock = Dock('The Rowing Dock', 3)
-
-kayak1 = Boat('kayak', 20)
-kayak2 = Boat('kayak', 20)
-board = Boat('stand_up_paddle_board', 15)
-
-patrick = Renter('Patrick Star', '4242424242424242')
-eugene = Renter('Eugene Krabs', '1313131313131313')
-
-def test_itr_1():    
     assert kayak1.type == 'kayak'
     assert kayak1.price_per_hour == 20
     assert kayak1.hours_rented == 0
@@ -34,6 +22,24 @@ def test_itr_1():
     assert patrick.credit_card_number == '4242424242424242'
 
 def test_itr_2():
+    dock = Dock('The Rowing Dock', 3)
+
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+
+    dock = Dock('The Rowing Dock', 3)
+
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+
     assert dock.name == 'The Rowing Dock'
     assert dock.max_rental_time == 3
     
@@ -47,7 +53,25 @@ def test_itr_2():
         board: {'renter': eugene, 'rented': True}
     }
 
-def test_itr_3():    
+def test_itr_3():   
+    dock = Dock('The Rowing Dock', 3)
+
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+
+    dock = Dock('The Rowing Dock', 3)
+
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+
     dock.rent(kayak1, patrick)
     dock.rent(kayak1, patrick)
     
@@ -63,6 +87,15 @@ def test_itr_3():
     assert dock.charge(kayak2) == {'card_number': eugene.credit_card_number, 'amount': 60}
 
 def test_itr_4():
+    dock = Dock('The Rowing Dock', 3)
+
+    kayak1 = Boat('kayak', 20)
+    kayak2 = Boat('kayak', 20)
+    board = Boat('stand_up_paddle_board', 15)
+
+    patrick = Renter('Patrick Star', '4242424242424242')
+    eugene = Renter('Eugene Krabs', '1313131313131313')
+    
     dock.rent(kayak1, patrick)
     
     dock.rent(board, eugene)
@@ -74,7 +107,7 @@ def test_itr_4():
     
     assert dock.rental_log == {
         kayak1: {'renter': patrick, 'rented': True},
-        kayak2: {'renter': patrick, 'rented': True},
+        kayak2: {'renter': eugene, 'rented': True},
         board: {'renter': eugene, 'rented': True}
     }
 
@@ -82,6 +115,6 @@ def test_itr_4():
 
     assert dock.rental_log == {
         kayak1: {'renter': patrick, 'rented': False},
-        kayak2: {'renter': patrick, 'rented': True},
+        kayak2: {'renter': eugene, 'rented': True},
         board: {'renter': eugene, 'rented': True}
     }
