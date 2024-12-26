@@ -118,3 +118,9 @@ def test_itr_4():
         kayak2: {'renter': eugene, 'rented': True},
         board: {'renter': eugene, 'rented': True}
     }
+    
+    assert kayak1.hours_rented == 1
+    assert board.hours_rented == 2
+    assert kayak2.hours_rented == 3
+    
+    dock.log_hour()

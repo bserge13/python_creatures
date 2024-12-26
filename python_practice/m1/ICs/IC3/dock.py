@@ -5,8 +5,12 @@ class Dock:
         self.rental_log = {}
     
     def rent(self, boat, renter):
-        self.rental_log[boat] = {'renter': renter, 'rented': True}
-        boat.add_hour()
+        if boat not in self.rental_log:
+            self.rental_log[boat] = {'renter': renter, 'rented': True}
+            boat.add_hour()
+        else: 
+            self.rental_log[boat]['rented'] = True
+            boat.add_hour()
     
     def charge(self, boat):
         if boat in self.rental_log:
@@ -17,4 +21,14 @@ class Dock:
                 return {'card_number': card, 'amount': boat.price_per_hour * boat.hours_rented}
     
     def return_boat(self, boat):
-        self.rental_log[boat]['rented'] = False
+        if boat in self.rental_log:
+            self.rental_log[boat]['rented'] = False
+    
+    def log_hour(self):
+        for boat, status in self.rental_log.items():
+            if status['rented'] == True:
+                boat.hours_rented += 1
+    """
+    .items() turns the dict objects into key/value pairs as 
+    a list in order to become iterable
+    """
