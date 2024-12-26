@@ -29,6 +29,17 @@ class Dock:
             if status['rented'] == True:
                 boat.hours_rented += 1
     """
-    .items() turns the dict objects into key/value pairs as 
-    a list in order to become iterable
+    .items() turns the dict key/value pairs into 
+    a list which is iterable and transformable vs 
+    an imutable tupple
     """
+    
+    def revenue(self):
+        total = 0
+        for boat, status in self.rental_log.items():
+            if status['rented'] == False:
+                if boat.hours_rented > self.max_rental_time:
+                    total += boat.price_per_hour * self.max_rental_time
+                else:
+                    total += boat.price_per_hour * boat.hours_rented
+        return total

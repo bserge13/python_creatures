@@ -124,3 +124,13 @@ def test_itr_4():
     assert kayak2.hours_rented == 3
     
     dock.log_hour()
+    
+    assert kayak1.hours_rented == 1
+    assert board.hours_rented == 3
+    assert kayak2.hours_rented == 4
+
+    assert dock.revenue() == 20
+    dock.return_boat(board)
+    assert dock.revenue() == 65
+    dock.return_boat(kayak2)
+    assert dock.revenue() == 125
