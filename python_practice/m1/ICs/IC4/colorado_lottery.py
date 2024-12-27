@@ -5,11 +5,9 @@ class ColoradoLottery:
         self.current_contestants = {}
     
     def interested_and_18(self, contestant, game):
-        if contestant.age >= 18:
-            if game.name in contestant.game_interests:
-                if not contestant.is_out_of_state() or game.national_drawing == True:
-                    return True
-        return False
+        return contestant.age >= 18 and game.name in contestant.game_interests
     
     def can_register(self, contestant, game):
-        ...
+        if self.interested_and_18(contestant, game):
+            if not contestant.is_out_of_state() or game.national_drawing == True:
+                return True
