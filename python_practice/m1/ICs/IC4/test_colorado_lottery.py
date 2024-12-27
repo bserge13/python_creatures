@@ -17,7 +17,7 @@ def test_itr_1():
                         'state_of_residence': 'CO',
                         'spending_money': 10})
     
-    assert alex.full_name() == 'Alexander Aigiades'
+    assert alex.full_name == 'Alexander Aigiades'
     assert alex.age == 28
     assert alex.state_of_residence == 'CO'
     assert alex.spending_money == 10
