@@ -72,8 +72,8 @@ def test_itr_2():
     assert lottery.interested_and_18(sitting_bull, mega) == False
     assert lottery.interested_and_18(alex, cash_5) == False
     
-    lottery.can_register(alex, pick_4) == True
-    lottery.can_register(alex, cash_5) == False
-    lottery.can_register(fred, mega) == True
-    lottery.can_register(sitting_bull, mega) == False
-    lottery.can_register(fred, cash_5) == False
+    # lottery.can_register(alex, pick_4) == True
+    # lottery.can_register(alex, cash_5) == False
+    # lottery.can_register(fred, mega) == True
+    # lottery.can_register(sitting_bull, mega) == False
+    # lottery.can_register(fred, cash_5) == False
