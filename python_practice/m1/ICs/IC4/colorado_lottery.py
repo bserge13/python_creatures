@@ -1,0 +1,3 @@
+class ColoradoLottery:
+    def __init__(self):
+        ...
