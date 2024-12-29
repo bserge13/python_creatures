@@ -12,11 +12,9 @@ class ColoradoLottery:
             if not contestant.is_out_of_state() or game.national_drawing == True:
                 return True
     
-    def register_contestant(self, contestant):
-        ...
+    def register_contestant(self, contestant, game):
+        if self.can_register(contestant, game):
+            self.registered_contestants[contestant] = game
     
     def eligible_contestants(self):
-        ...
-    
-    def current_contestants(self):
         ...
