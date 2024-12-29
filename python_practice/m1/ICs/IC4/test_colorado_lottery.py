@@ -77,3 +77,6 @@ def test_itr_2():
     lottery.can_register(fred, mega) == True
     lottery.can_register(sitting_bull, mega) == False
     lottery.can_register(fred, cash_5) == False
+
+def test_itr_3():
+    ...
