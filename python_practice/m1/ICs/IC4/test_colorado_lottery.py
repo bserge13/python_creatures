@@ -120,3 +120,7 @@ def test_itr_3():
     crazy_horse.add_game_interest('Mega Millions')
 
     assert lottery.eligible_contestants() == []
+    lottery.register_contestant(crazy_horse, mega)
+    assert lottery.eligible_contestants() == []
+    lottery.register_contestant(crazy_horse, pick_4)
+    assert lottery.eligible_contestants() == [crazy_horse]
