@@ -17,4 +17,4 @@ class ColoradoLottery:
             self.registered_contestants[contestant] = game
     
     def eligible_contestants(self):
-        ...
+        return [contestant for contestant,game in self.registered_contestants.items() if contestant.spending_money > game.cost]
