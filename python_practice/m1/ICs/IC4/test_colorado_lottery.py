@@ -124,3 +124,4 @@ def test_itr_3():
     assert lottery.eligible_contestants() == []
     lottery.register_contestant(crazy_horse, pick_4)
     assert lottery.eligible_contestants() == [crazy_horse]
+    assert lottery.registered_contestants == {crazy_horse: mega, crazy_horse: pick_4}
