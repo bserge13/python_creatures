@@ -146,3 +146,6 @@ def test_itr_3():
                                             fred: pick_4, fred: mega,
                                             }
     # should have Fred as being registered for cash5 but not passing wiht cash5 in the dict?
+
+def test_itr_4():
+    ...
