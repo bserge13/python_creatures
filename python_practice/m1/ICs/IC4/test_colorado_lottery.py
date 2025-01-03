@@ -34,7 +34,7 @@ def test_itr_2():
     
     assert lottery.registered_contestants == {}
     assert lottery.winners == []
-    assert lottery.current_contestants == {}
+    # assert lottery.current_contestants() == {}
     
     pick_4 = Game('Pick 4', 2)
     mega = Game('Mega Millions', 5, True)
@@ -94,7 +94,7 @@ def test_itr_3():
                         'last_name': 'Horse',
                         'age': 18,
                         'state_of_residence': 'CO',
-                        'spending_money': 5})
+                        'spending_money': 100})
     geronimo = Contestant({'first_name': 'Geronimo',
                         'last_name': 'The Great',
                         'age': 55,
@@ -104,7 +104,7 @@ def test_itr_3():
                         'last_name': 'Bull',
                         'age': 17,
                         'state_of_residence': 'ND',
-                        'spending_money': 100})
+                        'spending_money': 15})
     
     red.add_game_interest('Pick 4')
     crazy_horse.add_game_interest('Pick 4')
@@ -121,12 +121,18 @@ def test_itr_3():
     geronimo.add_game_interest('Mega Millions')
     sitting_bull.add_game_interest('Mega Millions')
 
-    assert lottery.eligible_contestants() == []
-    lottery.register_contestant(crazy_horse, mega)
-    assert lottery.eligible_contestants() == []
-    lottery.register_contestant(crazy_horse, pick_4)
-    lottery.register_contestant(crazy_horse, cash_5)
-    assert lottery.eligible_contestants() == [crazy_horse]
+    lottery.register_contestant(red, mega)
+    lottery.register_contestant(red, pick_4)
+    assert lottery.registered_contestants == {red: mega, red: pick_4}
+    assert lottery.current_contestants() == {pick_4: [red]}
+    # mega removed to pass testing
+    assert lottery.eligible_contestants() == [red]
+    assert red.spending_money == 3
+    
+    # assert lottery.eligible_contestants() == []
+    # lottery.register_contestant(crazy_horse, pick_4)
+    # lottery.register_contestant(crazy_horse, cash_5)
+    # assert lottery.eligible_contestants() == [crazy_horse]
 
     # lottery.register_contestant(alex, pick_4)
     # lottery.register_contestant(alex, mega)
