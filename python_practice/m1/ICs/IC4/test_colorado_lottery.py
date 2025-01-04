@@ -94,7 +94,7 @@ def test_itr_3():
                         'last_name': 'Horse',
                         'age': 18,
                         'state_of_residence': 'CO',
-                        'spending_money': 1})
+                        'spending_money': 2})
     geronimo = Contestant({'first_name': 'Geronimo',
                         'last_name': 'The Great',
                         'age': 55,
@@ -123,19 +123,22 @@ def test_itr_3():
 
     lottery.register_contestant(red, mega)
     lottery.register_contestant(red, pick_4)
-    assert lottery.registered_contestants == {red: mega, red: pick_4}
-    assert lottery.current_contestants() == {pick_4: [red]}
+    assert lottery.registered_contestants == {red: [mega, pick_4]}
+    assert lottery.current_contestants() == {pick_4: [red], mega: [red]}
     assert lottery.eligible_contestants() == [red]
     
-    # assert lottery.eligible_contestants() == []
-    # lottery.register_contestant(crazy_horse, pick_4)
-    # lottery.register_contestant(crazy_horse, cash_5)
-    # assert lottery.eligible_contestants() == [crazy_horse]
+    lottery.register_contestant(crazy_horse, pick_4)
+    lottery.register_contestant(crazy_horse, cash_5)
+    assert lottery.registered_contestants == {red: mega, red: pick_4, crazy_horse: cash_5}
+    assert lottery.current_contestants() == {pick_4: [red], mega: [red], cash_5: [crazy_horse]}
+    assert lottery.eligible_contestants() == [red, crazy_horse]
 
-    # lottery.register_contestant(alex, pick_4)
-    # lottery.register_contestant(alex, mega)
-    # lottery.register_contestant(alex, cash_5)
-    # assert lottery.eligible_contestants() == [crazy_horse, alex]
+    # lottery.register_contestant(geronimo, pick_4)
+    # lottery.register_contestant(geronimo, mega)
+    # lottery.register_contestant(geronimo, cash_5)
+    # assert lottery.registered_contestants == {red: mega, red: pick_4, crazy_horse: cash_5}
+    # assert lottery.current_contestants() == {pick_4: [red], cash_5: [crazy_horse]}
+    # assert lottery.eligible_contestants() == [red, crazy_horse]
     
     # lottery.register_contestant(fred, pick_4)
     # lottery.register_contestant(fred, mega)

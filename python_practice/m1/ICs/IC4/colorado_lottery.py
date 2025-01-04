@@ -14,17 +14,26 @@ class ColoradoLottery:
     
     def register_contestant(self, contestant, game):
         if self.can_register(contestant, game):
-            self.registered_contestants[contestant] = game
+            if contestant not in self.registered_contestants:
+                self.registered_contestants[contestant] = []
+            self.registered_contestants[contestant].append(game)
     
     def current_contestants(self):
         current_players = {}
-        for contestant,game in self.registered_contestants.items():
-            if game not in current_players:
-                current_players[game] = []
-            current_players[game].append(contestant)
+        for contestant,games in self.registered_contestants.items():
+            for game in games:
+                if game not in current_players:
+                    current_players[game] = []
+                current_players[game].append(contestant)
         return current_players
         # Dict where key is a Game object and the values is a list of contestant names
     
     def eligible_contestants(self):
-        return [contestant for contestant,game in self.registered_contestants.items() if contestant.spending_money > game.cost]
+        # return [contestant for contestant,game in self.registered_contestants.items() if contestant.spending_money > game.cost]
+        elg_contestant = []
+        for contestant,games in self.registered_contestants.items():
+            for game in games:
+                if contestant.spending_money > game.cost:
+                    elg_contestant.append(contestant)
+        return list(set(elg_contestant))
         # List of Contestants who've been registered to play a given game and that have more spending_money than cost
