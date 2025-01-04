@@ -15,7 +15,6 @@ class ColoradoLottery:
     def register_contestant(self, contestant, game):
         if self.can_register(contestant, game):
             self.registered_contestants[contestant] = game
-            contestant.spending_money -= game.cost
     
     def current_contestants(self):
         current_players = {}
@@ -28,3 +27,4 @@ class ColoradoLottery:
     
     def eligible_contestants(self):
         return [contestant for contestant,game in self.registered_contestants.items() if contestant.spending_money > game.cost]
+        # List of Contestants who've been registered to play a given game and that have more spending_money than cost
