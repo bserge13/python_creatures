@@ -129,8 +129,8 @@ def test_itr_3():
     
     lottery.register_contestant(crazy_horse, pick_4)
     lottery.register_contestant(crazy_horse, cash_5)
-    assert lottery.registered_contestants == {red: mega, red: pick_4, crazy_horse: cash_5}
-    assert lottery.current_contestants() == {pick_4: [red], mega: [red], cash_5: [crazy_horse]}
+    assert lottery.registered_contestants == {red: [mega, pick_4], crazy_horse: [pick_4, cash_5]}
+    assert lottery.current_contestants() == {pick_4: [red, crazy_horse], mega: [red], cash_5: [crazy_horse]}
     assert lottery.eligible_contestants() == [red, crazy_horse]
 
     # lottery.register_contestant(geronimo, pick_4)
