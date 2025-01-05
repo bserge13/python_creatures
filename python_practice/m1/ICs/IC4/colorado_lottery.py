@@ -2,7 +2,6 @@ class ColoradoLottery:
     def __init__(self):
         self.registered_contestants = {}
         self.winners = []
-        # self.current_contestants = {}
     
     def interested_and_18(self, contestant, game):
         return contestant.age >= 18 and game.name in contestant.game_interests
@@ -35,5 +34,5 @@ class ColoradoLottery:
             for game in games:
                 if contestant.spending_money > game.cost:
                     elg_contestant.append(contestant)
-        return list(set(elg_contestant))
+        return sorted(list(set(elg_contestant)), key=lambda x: x.full_name)
         # List of Contestants who've been registered to play a given game and that have more spending_money than cost
