@@ -140,21 +140,13 @@ def test_itr_3():
     assert lottery.current_contestants() == {pick_4: [red, crazy_horse], mega: [red, geronimo], cash_5: [crazy_horse]}
     assert lottery.eligible_contestants() == [crazy_horse, geronimo, red]
     
-    # lottery.register_contestant(fred, pick_4)
-    # lottery.register_contestant(fred, mega)
-    # lottery.register_contestant(fred, cash_5)
-    # assert lottery.eligible_contestants() == [crazy_horse, alex, fred]
-    
-    # lottery.register_contestant(sitting_bull, pick_4)
-    # lottery.register_contestant(sitting_bull, mega)
-    # lottery.register_contestant(sitting_bull, cash_5)
-    # assert lottery.eligible_contestants() == [crazy_horse, alex, fred]
-    
-    # assert lottery.registered_contestants == {crazy_horse: mega, crazy_horse: pick_4, crazy_horse: cash_5,
-    #                                         alex: pick_4, alex: mega, alex: cash_5,
-    #                                         fred: pick_4, fred: mega,
-    #                                         }
-    # should have Fred as being registered for cash5 but not passing wiht cash5 in the dict?
+    lottery.register_contestant(sitting_bull, pick_4)
+    lottery.register_contestant(sitting_bull, mega)
+    lottery.register_contestant(sitting_bull, cash_5)
+    assert lottery.registered_contestants == {red: [mega, pick_4], crazy_horse: [pick_4, cash_5], geronimo: [mega]}
+    assert lottery.current_contestants() == {pick_4: [red, crazy_horse], mega: [red, geronimo], cash_5: [crazy_horse]}
+    assert lottery.eligible_contestants() == [crazy_horse, geronimo, red]
+
 
 def test_itr_4():
     ...
