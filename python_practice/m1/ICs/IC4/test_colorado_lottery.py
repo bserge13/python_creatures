@@ -150,3 +150,6 @@ def test_itr_3():
 
 def test_itr_4():
     ...
+    # #draw_winners() returns the date of the drawing (string), and populates the #winners() 
+    # #winners() returns a list with a random winner for each game based on available contestants
+    # to test the #announce_winner method, you will need to stub the return value of #winners
