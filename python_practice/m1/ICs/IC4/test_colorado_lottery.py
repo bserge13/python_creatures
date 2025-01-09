@@ -153,3 +153,8 @@ def test_itr_4():
     # #draw_winners() returns the date of the drawing (string), and populates the #winners() 
     # #winners() returns a list with a random winner for each game based on available contestants
     # to test the #announce_winner method, you will need to stub the return value of #winners
+    
+    # Example:
+    # [{"Winston Churchill"=>"Cash 5"},
+    # {"Frederick Douglass"=>"Mega Millions"},
+    # {"Grace Hopper"=>"Pick 4"}]
