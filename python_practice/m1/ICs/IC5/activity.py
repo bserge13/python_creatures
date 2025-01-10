@@ -13,7 +13,6 @@ class Activity:
     
     def owed(self):
         owed = {}
-        difference = self.split()
         for participant,money in self.participants.items():
-            owed[participant] = difference - money
+            owed[participant] = self.split() - money
         return owed
