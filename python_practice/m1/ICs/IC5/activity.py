@@ -12,4 +12,8 @@ class Activity:
         return self.total_cost / len(self.participants)
     
     def owed(self):
-        ...
+        owed = {}
+        difference = self.split()
+        for participant,money in self.participants.items():
+            owed[participant] = difference - money
+        return owed

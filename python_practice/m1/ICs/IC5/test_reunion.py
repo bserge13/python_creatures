@@ -25,7 +25,7 @@ def test_itr_2():
 
     assert activity.total_cost == 60
     assert activity.split() == 30
-    # assert activity.owed() == {'Maria': 10, 'Luther': -10}
+    assert activity.owed() == {'Maria': 10, 'Luther': -10}
     
     reunion = Reunion('1406 BE')
     
