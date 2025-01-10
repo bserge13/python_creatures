@@ -7,3 +7,9 @@ class Activity:
     def add_participant(self, participant, cost):
         self.participants[participant] = cost
         self.total_cost += cost
+    
+    def split(self):
+        return self.total_cost / len(self.participants)
+    
+    def owed(self):
+        ...
