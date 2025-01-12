@@ -33,3 +33,6 @@ def test_itr_2():
     assert reunion.activities == []
     reunion.add_activity(activity)
     assert reunion.activities == [activity]
+
+def test_itr_3():
+    ...
