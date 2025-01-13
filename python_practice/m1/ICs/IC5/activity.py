@@ -14,5 +14,6 @@ class Activity:
     def owed(self):
         owed = {}
         for participant,money in self.participants.items():
-            owed[participant] = self.split() - money
+            value = self.split() - money
+            owed[participant] = round(value, 2)
         return owed

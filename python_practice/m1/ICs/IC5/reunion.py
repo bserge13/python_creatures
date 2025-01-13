@@ -11,3 +11,6 @@ class Reunion:
         for activity in self.activities:
             cost += activity.total_cost
         return cost
+    
+    def split_bill(self):
+        ...

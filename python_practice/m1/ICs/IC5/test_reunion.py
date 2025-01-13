@@ -36,13 +36,24 @@ def test_itr_2():
 
 def test_itr_3():
     reunion = Reunion('2308 BE')
-    activity = Activity('Diner and Drinks')
-    activity.add_participant('Noelle', 40)
-    activity.add_participant('Kam', 20)
-    reunion.add_activity(activity)
+    activity_1 = Activity('Diner and Comedy Show')
+    activity_2 = Activity('Drinks and Games')
 
-    assert reunion.event_cost() == 60
+    activity_1.add_participant('Noelle', 10)
+    activity_1.add_participant('Kam', 10)
 
+    activity_2.add_participant('Noelle', 30)
+    activity_2.add_participant('Tommy', 20)
+    activity_2.add_participant('Kam', 15)
+    
+    reunion.add_activity(activity_1)
+    reunion.add_activity(activity_2)
+
+    assert reunion.event_cost() == 85
+    
+    # assert activity_1.owed() == {'Kam': 0, 'Noelle': 0} PASSING
+    # assert activity_2.owed() == {'Noelle': -8.33, 'Tommy': 1.67, 'Kam': 6.67} PASSING
+    # assert reunion.split_bill() == {}
     
     # Each Reunion can tell us each participant's name and what they owe for the whole reunion.
     # This should be the combination of what they owe from all activities. Again, a negative value
