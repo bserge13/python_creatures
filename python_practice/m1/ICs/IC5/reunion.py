@@ -13,4 +13,9 @@ class Reunion:
         return cost
     
     def split_bill(self):
-        ...
+        reunion_bill = {}
+        for activity in self.activities:
+            for participant, money in activity.participants.items():
+                if participant not in reunion_bill:
+                    reunion_bill[participant]
+        return reunion_bill 
