@@ -56,4 +56,3 @@ def test_itr_3():
     assert reunion.split_bill() == {'Noelle': -10.83, 'Kam': 9.17, 'Tommy': 1.67}
     
     assert reunion.print_bill() == 'Noelle owes $-10.83\nKam owes $9.17\nTommy owes $1.67'
-    # Each Reunion can print a summary of each participant's name and what they owe, separated by a line break.
