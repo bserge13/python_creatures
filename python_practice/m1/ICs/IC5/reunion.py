@@ -15,7 +15,10 @@ class Reunion:
     def split_bill(self):
         reunion_bill = {}
         for activity in self.activities:
-            for participant, money in activity.participants.items():
-                if participant not in reunion_bill:
-                    reunion_bill[participant]
+            activity_dues = activity.owed()
+            for participant, amount in activity_dues.items():
+                if participant in reunion_bill:
+                    reunion_bill[participant] += amount
+                else:
+                    reunion_bill[participant] = amount
         return reunion_bill 
