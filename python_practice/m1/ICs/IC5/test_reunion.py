@@ -55,9 +55,5 @@ def test_itr_3():
     assert activity_2.owed() == {'Noelle': -8.33, 'Tommy': 1.67, 'Kam': 6.67}
     assert reunion.split_bill() == {'Noelle': -10.83, 'Kam': 9.17, 'Tommy': 1.67}
     
-    # Each Reunion can tell us each participant's name and what they owe for the whole reunion.
-    # This should be the combination of what they owe from all activities. Again, a negative value
-    # means they are owed money. For example, if "Maria" owes 10 from brunch and is owed 20 from drinks,
-    # her final amount owed in the breakout is -10.
-    
+    assert reunion.print_bill() == 'Noelle owes $-10.83\nKam owes $9.17\nTommy owes $1.67'
     # Each Reunion can print a summary of each participant's name and what they owe, separated by a line break.

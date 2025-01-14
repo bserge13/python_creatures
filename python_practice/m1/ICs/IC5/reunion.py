@@ -21,4 +21,10 @@ class Reunion:
                     reunion_bill[participant] += amount
                 else:
                     reunion_bill[participant] = amount
-        return reunion_bill 
+        return reunion_bill
+    
+    def print_bill(self):
+        bill = ""
+        for participant,owed in self.split_bill().items():
+            bill += f"{participant} owes ${owed}\n"
+        return bill.strip()
