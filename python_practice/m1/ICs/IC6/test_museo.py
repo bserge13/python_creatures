@@ -1,6 +1,7 @@
 import pytest
 from artist import Artist
 from photograph import Photograph
+from curator import Curator
 
 def test_itr_1():
     photo_attrs = {
@@ -31,3 +32,6 @@ def test_itr_1():
     assert artist.died == '1984'
     assert artist.country == 'United States'
     assert artist.age_at_death() == 82
+
+def test_itr_2():
+    ...
