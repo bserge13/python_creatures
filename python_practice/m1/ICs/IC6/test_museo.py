@@ -35,23 +35,25 @@ def test_itr_1():
 
 def test_itr_2():
     curator = Curator()
-    photo_1 = Photograph({
+    artist_1 = Artist({
         'id': '1',
-        'name': 'Rue Mouffetard, Paris (Boy with Bottles)',
-        'artist_id': '4',
-        'year': '1954'
+        'name': 'Henri Cartier-Bresson',
+        'born': '1908',
+        'died': '2004',
+        'country': 'France'
     })
-    photo_2 = Photograph({
-        'id': '2',      
-        'name': 'Moonrise, Hernandez',      
-        'artist_id': '2',      
-        'year': '1941'      
+    artist_2 = Artist({
+        'id': '2',
+        'name': 'Ansel Adams',
+        'born': '1902',
+        'died': '1984',
+        'country': 'United States'
     })
     
-    assert curator.photographs == []
+    assert curator.artists == []
     
-    curator.add_artist(photo_1)
-    curator.add_artist(photo_2)
+    curator.add_artist(artist_1)
+    curator.add_artist(artist_2)
     
-    assert curator.photographs == [photo_1, photo_2]
+    assert curator.artists == [artist_1, artist_2]
     assert curator.find_artist_by_id('1')
