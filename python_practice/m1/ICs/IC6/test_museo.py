@@ -34,4 +34,6 @@ def test_itr_1():
     assert artist.age_at_death() == 82
 
 def test_itr_2():
-    ...
+    curator = Curator()
+    
+    assert curator.photographs == []
