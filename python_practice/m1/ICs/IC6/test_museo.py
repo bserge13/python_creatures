@@ -35,5 +35,17 @@ def test_itr_1():
 
 def test_itr_2():
     curator = Curator()
+    photo_1 = Photograph({
+        'id': '1',
+        'name': 'Rue Mouffetard, Paris (Boy with Bottles)',
+        'artist_id': '4',
+        'year': '1954'
+    })
+    photo_2 = Photograph({
+        'id': '2',      
+        'name': 'Moonrise, Hernandez',      
+        'artist_id': '2',      
+        'year': '1941'      
+    })
     
     assert curator.photographs == []
