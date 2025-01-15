@@ -49,3 +49,9 @@ def test_itr_2():
     })
     
     assert curator.photographs == []
+    
+    curator.add_artist(photo_1)
+    curator.add_artist(photo_2)
+    
+    assert curator.photographs == [photo_1, photo_2]
+    assert curator.find_artist_by_id('1')
