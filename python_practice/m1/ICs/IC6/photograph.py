@@ -1,0 +1,3 @@
+class Photograph:
+    def __init__(self):
+        ...
