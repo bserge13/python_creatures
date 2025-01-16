@@ -10,3 +10,12 @@ class Curator:
             if artist.id == id:
                 return artist
         return None
+    
+    def library(self):
+        ...
+    
+    def multi_photo_artists(self):
+        ...
+    
+    def photos_by_country(self, country):
+        ...
