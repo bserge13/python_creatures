@@ -57,3 +57,36 @@ def test_itr_2():
     
     assert curator.artists == [artist_1, artist_2]
     assert curator.find_artist_by_id('1')
+
+def test_itr_3():
+    curator = Curator()
+    artist_1 = Artist({
+        'id': '1',
+        'name': 'Henri Cartier-Bresson',
+        'born': '1908',
+        'died': '2004',
+        'country': 'France'
+    })
+    artist_2 = Artist({
+        'id': '2',
+        'name': 'Ansel Adams',
+        'born': '1902',
+        'died': '1984',
+        'country': 'United States'
+    })
+    photo_1 = Photograph({
+        'id': '1',
+        'name': 'Rue Mouffetard, Paris (Boy with Bottles)',
+        'artist_id': '1',
+        'year': '1954'
+    })
+    photo_2 = Photograph({
+        'id': '2',
+        'name': 'The Great Wave of Loki',
+        'artist_id': '2',
+        'year': '1970'
+    })
+
+# A Curator can return a list of all artists and their photographs.
+# A Curator can return a list of names of artists who have more than one photograph
+# A Curator can return a list of Photographs that were taken by a photographer from that country.
