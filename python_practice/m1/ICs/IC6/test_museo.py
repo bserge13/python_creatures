@@ -56,7 +56,8 @@ def test_itr_2():
     curator.add_artist(artist_2)
     
     assert curator.artists == [artist_1, artist_2]
-    assert curator.find_artist_by_id('1')
+    assert curator.find_artist_by_id('1') == artist_1
+    assert curator.find_artist_by_id('3') == None
 
 def test_itr_3():
     curator = Curator()
