@@ -93,6 +93,7 @@ def test_itr_3():
         'artist_id': '2',
         'year': '1969'
     })
+    
     assert curator.photographs == []
     
     curator.add_photograph(photo_1)
@@ -100,10 +101,11 @@ def test_itr_3():
     curator.add_photograph(photo_3)
     
     assert curator.photographs == [photo_1, photo_2, photo_3]
+    
 # A Curator can return a list of all artists and their photographs
-#     assert curator.library() == [{artist_1: [photo_1], artist_2: [photo_2, photo_3]}]
-# # A Curator can return a list of names of artists who have more than one photograph
-#     assert curator.multi_photo_artists() == [artist_2.name]
-# # A Curator can return a list of Photographs that were taken by a photographer from that country
-#     assert curator.photos_by_country('France') == [photo_1]
-#     assert curator.photos_by_country('united states') == [photo_2, photo_3]
+    assert curator.library() == [{artist_1: [photo_1]}, {artist_2: [photo_2, photo_3]}]
+# A Curator can return a list of names of artists who have more than one photograph
+    # assert curator.multi_photo_artists() == [artist_2.name]
+# A Curator can return a list of Photographs that were taken by a photographer from that country
+    # assert curator.photos_by_country('France') == [photo_1]
+    # assert curator.photos_by_country('united states') == [photo_2, photo_3]

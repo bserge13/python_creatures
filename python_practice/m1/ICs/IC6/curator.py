@@ -17,9 +17,17 @@ class Curator:
     
     def library(self):
     # list of all artists and their photographs (dict)
-        library = {}
-        for artis in self.artists:
-            ...
+        portfolio = {artist.id: [] for artist in self.artists}
+        
+        for photo in self.photographs:
+            if photo.artist_id in portfolio:
+                portfolio[photo.artist_id].append(photo)
+        
+        library = []
+        for artist in self.artists:
+            library.append({artist: portfolio[artist.id]})
+        
+        return library
     
     def multi_photo_artists(self):
     # list of names of artists who have more than one photograph
