@@ -95,12 +95,15 @@ def test_itr_3():
     })
     
     assert curator.photographs == []
-    
     curator.add_photograph(photo_1)
     curator.add_photograph(photo_2)
     curator.add_photograph(photo_3)
-    
     assert curator.photographs == [photo_1, photo_2, photo_3]
+    
+    assert curator.artists == []
+    curator.add_artist(artist_1)
+    curator.add_artist(artist_2)
+    assert curator.artists == [artist_1, artist_2]
     
 # A Curator can return a list of all artists and their photographs
     assert curator.library() == [{artist_1: [photo_1]}, {artist_2: [photo_2, photo_3]}]
