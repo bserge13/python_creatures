@@ -43,4 +43,9 @@ class Curator:
     
     def photos_by_country(self, country):
     # list of Photographs that were taken by a photographer from that country
-        ...
+        library = self.library()
+        
+        for portfolio in library:
+            for artist,collection in portfolio.items():
+                if artist.country == country.title():
+                    return collection
