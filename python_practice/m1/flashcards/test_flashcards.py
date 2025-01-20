@@ -31,7 +31,6 @@ def test_itr_2():
     
     assert deck.cards == [card_1, card_2, card_3]
     assert deck.count() == 3
-    # assert deck.cards_in_category('STEM') == [card_2, card_3]
-    # assert deck.cards_in_category('Geography') == [card_1]
-    # assert deck.cards_in_category('Pop Culture') == []
-    
+    assert deck.cards_in_category('STEM') == [card_2, card_3]
+    assert deck.cards_in_category('Geography') == [card_1]
+    assert deck.cards_in_category('Pop Culture') == []
