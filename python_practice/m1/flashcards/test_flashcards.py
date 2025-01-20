@@ -9,12 +9,16 @@ def test_itr_1():
     assert card.answer == 'Juneau'
     assert card.category == 'Geography'
     
-    turn = Turn('Juneau', card)
+    turn_1 = Turn('Juneau', card)
+    turn_2 = Turn('Juniper', card)
     
-    assert turn.card == card
-    assert turn.guess == 'Juneau'
-    assert turn.is_correct() == True
-    assert turn.feedback() == 'Correct!'
+    assert turn_1.card == card
+    assert turn_1.guess == 'Juneau'
+    assert turn_1.is_correct() == True
+    assert turn_1.feedback() == 'Correct!'
+    
+    assert turn_2.is_correct() == False
+    assert turn_2.feedback() == 'Incorrect.'
 
 def test_itr_2():
     ...
