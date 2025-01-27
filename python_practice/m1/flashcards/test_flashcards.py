@@ -50,7 +50,7 @@ def test_itr_2():
     assert round.current_card() == card_2
     
     round.take_turn('Venus')
-    assert round.turns.count == 2
+    assert len(round.turns) == 2
     assert round.turns[-1].feedback() == 'Incorrect.'
     assert round.number_correct() == 1
     
