@@ -9,4 +9,6 @@ class Round:
         return self.deck.cards[0]
     
     def take_turn(self, guess):
-        return Turn(guess, self.current_card())
+        attempt = Turn(guess, self.current_card())
+        self.turns.append(attempt)
+        return attempt
