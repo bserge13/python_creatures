@@ -46,12 +46,12 @@ def test_itr_2():
     assert new_turn.is_correct() == True
     
     assert round.turns == [new_turn]
-    assert round.number_correct == 1
+    assert round.number_correct() == 1
     assert round.current_card() == card_2
     
     round.take_turn('Venus')
     assert round.turns.count == 2
-    assert round.turns.last.feedback() == 'Incorrect.'
+    assert round.turns[-1].feedback() == 'Incorrect.'
     assert round.number_correct() == 1
     
     assert round.number_correct_by_category('Geography') == 1

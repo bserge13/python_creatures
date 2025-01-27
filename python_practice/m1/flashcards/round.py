@@ -11,4 +11,8 @@ class Round:
     def take_turn(self, guess):
         attempt = Turn(guess, self.current_card())
         self.turns.append(attempt)
+        # self.deck.cards.pop()
         return attempt
+    
+    def number_correct(self):
+        return len(self.turns)
