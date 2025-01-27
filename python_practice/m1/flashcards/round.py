@@ -19,3 +19,15 @@ class Round:
     
     def number_correct(self):
         return len([turn for turn in self.turns if turn.is_correct()])
+    
+    def number_correct_by_category(self, category):
+        category_cards = []
+        for turn in self.turns:
+            if turn.card.category == category and turn.is_correct():
+                category_cards.append(turn)
+        return len(category_cards)
+    
+    def percent_correct(self):
+        if len(self.turns) == 0:
+            return 0
+        return (self.number_correct() / len(self.turns)) * 100
