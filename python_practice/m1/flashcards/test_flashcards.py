@@ -60,3 +60,6 @@ def test_itr_2():
     assert round.percent_correct_by_category('Geography') == 100.0
     
     assert round.current_card() == card_3
+
+def test_itr_3():
+    ...
