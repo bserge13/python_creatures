@@ -32,7 +32,7 @@ class Dock:
                 boat.hours_rented += 1
     """
     .items() turns the dict key/value pairs into 
-    a list which is iterable and transformable vs 
+    a list-item pairs, which is iterable and transformable vs 
     an imutable tupple
     """
     
