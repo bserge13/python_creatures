@@ -4,3 +4,4 @@ class Loki:
         self.breed = 'Couch Hippo'
         self.nickname = 'Little Puss'
         self.hungry = True 
+    

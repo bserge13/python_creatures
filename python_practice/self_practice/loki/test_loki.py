@@ -1,9 +1,9 @@
 import pytest 
 from loki import Loki
 
-def test_attrs():
-    loki = Loki()
-    
+loki = Loki()
+
+def test_attrs():    
     assert loki.name == 'Loki'
     assert loki.breed == 'Couch Hippo'
     assert loki.nickname == 'Little Puss'
