@@ -8,3 +8,6 @@ def test_attrs():
     assert loki.breed == 'Couch Hippo'
     assert loki.nickname == 'Little Puss'
     assert loki.hungry == True
+
+def test_functions():
+    ...
