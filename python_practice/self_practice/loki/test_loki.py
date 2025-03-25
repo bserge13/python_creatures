@@ -14,3 +14,7 @@ def test_functions():
     loki.eat()
     loki.eat()
     assert loki.eat_counter == 2
+
+def test_friends():
+    loki.has_friends() == False
+    loki.friends == []
