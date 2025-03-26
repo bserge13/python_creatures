@@ -1,5 +1,6 @@
 import pytest 
 from loki import Loki
+from friend import Friend
 
 loki = Loki()
 
@@ -16,5 +17,9 @@ def test_functions():
     assert loki.eat_counter == 2
 
 def test_friends():
-    loki.has_friends() == False
-    loki.friends == []
+    assert loki.has_friends() == False
+    assert loki.friends == []
+
+    karl = Friend('Karl')
+    loki.add_friend(karl)
+    
