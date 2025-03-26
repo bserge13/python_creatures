@@ -21,5 +21,7 @@ def test_friends():
     assert loki.friends == []
 
     karl = Friend('Karl')
-    loki.add_friend(karl)
     
+    loki.add_friend(karl)
+    assert loki.has_friends() == True
+    assert loki.friends == [karl]
