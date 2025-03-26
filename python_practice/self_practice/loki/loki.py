@@ -12,3 +12,6 @@ class Loki:
 
     def has_friends(self):
         return True if len(self.friends) > 0 else False
+
+    def add_friend(self, friend):
+        self.friends.append(friend)
