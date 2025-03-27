@@ -28,4 +28,6 @@ def test_friends():
     assert loki.friends[0].name == 'Karl'
 
 def test_friend_attrs():
-    ...
+    karl = Friend('Karl')
+
+    assert karl.tired == False 
