@@ -26,3 +26,6 @@ def test_friends():
     assert loki.has_friends() == True
     assert loki.friends == [karl]
     assert loki.friends[0].name == 'Karl'
+
+def test_friend_attrs():
+    ...
