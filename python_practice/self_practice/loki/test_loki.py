@@ -25,3 +25,4 @@ def test_friends():
     loki.add_friend(karl)
     assert loki.has_friends() == True
     assert loki.friends == [karl]
+    assert loki.friends[0].name == 'Karl'
