@@ -33,3 +33,10 @@ def test_friend_attrs():
     assert karl.tired == False
     assert karl.play_count == 0 
     assert karl.demenior == 'Playful'
+    assert karl.age == 1
+
+
+    karl.play_with(loki)
+    assert karl.play_count == 1
+    assert karl.demenior == 'Playful'
+    

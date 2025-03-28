@@ -4,3 +4,4 @@ class Friend:
         self.tired = False
         self.play_count = 0
         self.demenior = 'Playful'
+        self.age = 1
