@@ -30,4 +30,6 @@ def test_friends():
 def test_friend_attrs():
     karl = Friend('Karl')
 
-    assert karl.tired == False 
+    assert karl.tired == False
+    assert karl.play_count == 0 
+    assert karl.demenior == 'Playful'
