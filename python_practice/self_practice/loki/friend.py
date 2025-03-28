@@ -5,3 +5,7 @@ class Friend:
         self.play_count = 0
         self.demenior = 'Playful'
         self.age = 1
+
+    def play_with(self, friend):
+        self.play_count += 1
+        # Look to maybe make this a Loki class function()
