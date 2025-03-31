@@ -54,3 +54,8 @@ def test_loki_friend_attrs():
 
     loki.play_with(karl)
     assert karl.play_count == 2
+    assert karl.demenior() == 'Playful'
+
+    karl.play_with(loki)
+    loki.play_with(karl)
+    assert karl.demenior() == 'Tired'
