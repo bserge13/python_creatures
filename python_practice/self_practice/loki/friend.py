@@ -8,4 +8,3 @@ class Friend:
 
     def play_with(self, friend):
         self.play_count += 1
-        # Look to maybe make this a Loki class function()
