@@ -32,18 +32,18 @@ def test_friend_attrs():
 
     assert karl.tired == False
     assert karl.play_count == 0 
-    assert karl.demenior == 'Playful'
+    assert karl.demenior() == 'Playful'
     assert karl.age == 1
 
 
     karl.play_with(loki)
     assert karl.play_count == 1
-    assert karl.demenior == 'Playful'
+    assert karl.demenior() == 'Playful'
 
     karl.play_with(loki)
     karl.play_with(loki)
     assert karl.play_count == 3
-    # assert karl.demenior == 'Tired'
+    assert karl.demenior() == 'Tired'
 
 def test_loki_friend_attrs():
     karl = Friend('Karl')
