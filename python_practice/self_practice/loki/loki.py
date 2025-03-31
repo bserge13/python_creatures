@@ -15,3 +15,8 @@ class Loki:
 
     def add_friend(self, friend):
         self.friends.append(friend)
+
+    def play_with(self, friend):
+        if friend not in self.friends:
+            self.friends.append(friend)
+        friend.play_count += 1
