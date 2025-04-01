@@ -2,9 +2,9 @@ import pytest
 from loki import Loki
 from friend import Friend
 
-loki = Loki()
 
 def test_attrs():    
+    loki = Loki()
     assert loki.name == 'Loki'
     assert loki.breed == 'Couch Hippo'
     assert loki.nickname == 'Little Puss'
@@ -12,11 +12,15 @@ def test_attrs():
     assert loki.eat_counter == 0
 
 def test_functions():
+    loki = Loki()
+
     loki.eat()
     loki.eat()
     assert loki.eat_counter == 2
 
 def test_friends():
+    loki = Loki()
+
     assert loki.has_friends() == False
     assert loki.friends == []
 
@@ -28,6 +32,7 @@ def test_friends():
     assert loki.friends[0].name == 'Karl'
 
 def test_friend_attrs():
+    loki = Loki()
     karl = Friend('Karl')
 
     assert karl.tired == False
@@ -46,6 +51,7 @@ def test_friend_attrs():
     assert karl.demenior() == 'Tired'
 
 def test_loki_friend_attrs():
+    loki = Loki()
     karl = Friend('Karl')
 
     assert karl.play_count == 0
@@ -59,3 +65,9 @@ def test_loki_friend_attrs():
     karl.play_with(loki)
     loki.play_with(karl)
     assert karl.demenior() == 'Tired'
+
+def test_play_with():
+    loki = Loki()
+    karl = Friend('Karl')
+
+    assert loki.friends == []
