@@ -71,3 +71,5 @@ def test_play_with():
     karl = Friend('Karl')
 
     assert loki.friends == []
+    loki.play_with(karl)
+    assert loki.friends == [karl]
