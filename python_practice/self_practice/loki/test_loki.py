@@ -74,4 +74,5 @@ def test_play_with():
     loki.play_with(karl)
     assert loki.friends == [karl]
 
-    # test for Friend class play_with() function logic...does nothing right now
+
+    # test for Friend class self.tired attr changing
