@@ -6,7 +6,9 @@ class Friend:
         self.age = 1
 
     def play_with(self, friend):
-        self.play_count += 1
+        if self in friend.friends:
+            self.play_count += 1
+        return 'not friends'
 
     def demenior(self):
         if self.play_count >= 3:
