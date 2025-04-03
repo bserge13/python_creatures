@@ -84,4 +84,3 @@ def test_play_with():
     loki.play_with(cowboy)
     loki.play_with(cowboy)
     assert cowboy.demenior() == 'Tired'
-    # test for Friend class self.tired attr changing
