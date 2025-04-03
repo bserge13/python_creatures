@@ -77,6 +77,11 @@ def test_play_with():
 
     cowboy = Friend('Cowboy')
     assert cowboy.play_count == 0
-    assert cowboy.play_with(loki) == 'not friends'
+    assert cowboy.play_with(loki) == "We're not friends"
     
+    assert cowboy.demenior() == 'Playful'
+    loki.play_with(cowboy)
+    loki.play_with(cowboy)
+    loki.play_with(cowboy)
+    assert cowboy.demenior() == 'Tired'
     # test for Friend class self.tired attr changing
