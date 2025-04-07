@@ -87,3 +87,4 @@ def test_play_with():
 
     assert cowboy.demenior() == 'Tired'
     assert cowboy.age == 2
+    assert loki.friends == [karl, cowboy]
