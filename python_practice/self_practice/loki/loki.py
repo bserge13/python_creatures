@@ -20,3 +20,10 @@ class Loki:
         if friend not in self.friends:
             self.friends.append(friend)
         friend.play_count += 1
+
+    def speak(self):
+        if len(self.friends) == 0:
+            return 'I have no friends (womp womp)'
+        else:
+            greeting = [f"Hi, {friend.name}!" for friend in self.friends]
+            return ' '.join(greeting)
