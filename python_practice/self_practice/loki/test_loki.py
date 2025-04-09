@@ -95,7 +95,10 @@ def test_speak():
     cowboy = Friend('Cowboy')
 
     assert loki.friends == []
+    assert loki.speak() == 'I have no friends (womp womp)'
     
     loki.add_friend(karl)
     loki.add_friend(cowboy)
     assert loki.friends == [karl, cowboy]
+    
+    assert loki.speak() == f"Hi, {karl.name}! Hi, {cowboy.name}!"
