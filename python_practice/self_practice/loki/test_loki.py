@@ -94,4 +94,8 @@ def test_speak():
     karl = Friend('Karl')
     cowboy = Friend('Cowboy')
 
+    assert loki.friends == []
     
+    loki.add_friend(karl)
+    loki.add_friend(cowboy)
+    assert loki.friends == [karl, cowboy]
