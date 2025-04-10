@@ -17,3 +17,8 @@ class Friend:
             self.tired = True
             return 'Tired'
         return 'Playful'
+
+    def speak(self, friend):
+        if self not in friend.friends:
+            return 'Go away, dumb dumb'
+        return f"I tolerate you, {friend.nickname}"
