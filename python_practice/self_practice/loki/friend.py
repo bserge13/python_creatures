@@ -14,5 +14,6 @@ class Friend:
 
     def demenior(self):
         if self.play_count >= 3:
+            self.tired = True
             return 'Tired'
         return 'Playful'
