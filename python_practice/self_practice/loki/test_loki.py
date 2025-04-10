@@ -25,7 +25,7 @@ def test_friends():
     assert loki.friends == []
 
     karl = Friend('Karl')
-    
+
     loki.add_friend(karl)
     assert loki.has_friends() == True
     assert loki.friends == [karl]
@@ -78,7 +78,7 @@ def test_play_with():
     cowboy = Friend('Cowboy')
     assert cowboy.play_count == 0
     assert cowboy.play_with(loki) == "We're not friends"
-    
+
     assert cowboy.demenior() == 'Playful'
     loki.play_with(cowboy)
     cowboy.play_with(loki)
@@ -89,16 +89,19 @@ def test_play_with():
     assert cowboy.age == 2
     assert loki.friends == [karl, cowboy]
 
-def test_speak():
+def test_loki_speak():
     loki = Loki()
     karl = Friend('Karl')
     cowboy = Friend('Cowboy')
 
     assert loki.friends == []
     assert loki.speak() == 'I have no friends (womp womp)'
-    
+
     loki.add_friend(karl)
     loki.add_friend(cowboy)
     assert loki.friends == [karl, cowboy]
-    
+
     assert loki.speak() == f"Hi, {karl.name}! Hi, {cowboy.name}!"
+
+def test_karl_speak():
+    ...
