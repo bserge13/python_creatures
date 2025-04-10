@@ -107,4 +107,9 @@ def test_loki_speak():
     assert loki.speak() == f"Hi, {karl.name}! Hi, {cowboy.name}!"
 
 def test_karl_speak():
-    ...
+    loki = Loki()
+    karl = Friend('Karl')
+
+    assert karl.speak(loki) == 'Go away, dumb dumb'
+    loki.add_friend(karl)
+    assert karl.speak(loki) == f"I tolerate you, {loki.nickname}"
