@@ -113,3 +113,4 @@ def test_karl_speak():
     assert karl.speak(loki) == 'Go away, dumb dumb'
     loki.add_friend(karl)
     assert karl.speak(loki) == f"I tolerate you, {loki.nickname}"
+    # keeping the streaks alive honestly
