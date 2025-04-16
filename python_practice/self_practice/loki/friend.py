@@ -20,5 +20,13 @@ class Friend:
 
     def speak(self, friend):
         if self not in friend.friends:
-            return 'Go away, dumb dumb'
-        return f"I tolerate you, {friend.nickname}"
+            return 'Go away, dumb dumb...'
+        elif self.play_count < 2:
+            self.play_count += 1 
+            return f"I tolerate you, {friend.nickname}..."
+        elif self.play_count < 3:
+            self.play_count += 1
+            return f"(sigh) I guess you're fun, somethimes, {friend.nickname}..."
+        elif self.play_count >= 3:
+            self.play_count += 1
+            return f"I'm tired from all this fun, {friend.nickname}!"
