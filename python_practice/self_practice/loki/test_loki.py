@@ -110,6 +110,16 @@ def test_karl_speak():
     loki = Loki()
     karl = Friend('Karl')
 
-    assert karl.speak(loki) == 'Go away, dumb dumb'
+    assert karl not in loki.friends
+    assert karl.speak(loki) == 'Go away, dumb dumb...'
     loki.add_friend(karl)
-    assert karl.speak(loki) == f"I tolerate you, {loki.nickname}"
+    
+    assert karl.play_count == 0
+    assert karl.speak(loki) == f"I tolerate you, {loki.nickname}..."
+    
+    assert karl.play_count == 1
+    assert karl.speak(loki) == f"I tolerate you, {loki.nickname}..."
+    assert karl.play_count == 2
+    assert karl.speak(loki) == f"(sigh) I guess you're fun, somethimes, {loki.nickname}..."
+    assert karl.play_count == 3
+    assert karl.speak(loki) == f"I'm tired from all this fun, {loki.nickname}!"
