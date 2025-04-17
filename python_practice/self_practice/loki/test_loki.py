@@ -125,4 +125,19 @@ def test_karl_speak():
     assert karl.speak(loki) == f"I'm tired from all this fun, {loki.nickname}!"
 
 def test_hungry():
-    ...
+    loki = Loki()
+
+    assert loki.eat_counter == 0 
+    assert loki.hungry == True
+
+    loki.eat()
+    assert loki.eat_counter == 1
+    assert loki.hungry == True
+    
+    loki.eat()
+    assert loki.eat_counter == 2
+    assert loki.hungry == True
+    
+    loki.eat()
+    assert loki.eat_counter == 3
+    assert loki.hungry == False
