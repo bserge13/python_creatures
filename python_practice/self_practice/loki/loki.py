@@ -27,3 +27,6 @@ class Loki:
         else:
             greeting = [f"Hi, {friend.name}!" for friend in self.friends]
             return ' '.join(greeting)
+
+    def eat():
+        ...
