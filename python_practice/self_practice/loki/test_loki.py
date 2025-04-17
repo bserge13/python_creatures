@@ -123,3 +123,6 @@ def test_karl_speak():
     assert karl.speak(loki) == f"(sigh) I guess you're fun, somethimes, {loki.nickname}..."
     assert karl.play_count == 3
     assert karl.speak(loki) == f"I'm tired from all this fun, {loki.nickname}!"
+
+def test_hungry():
+    ...
