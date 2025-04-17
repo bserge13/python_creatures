@@ -9,6 +9,8 @@ class Loki:
 
     def eat(self):
         self.eat_counter += 1
+        if self.eat_counter >= 3:
+            self.hungry = False
 
     def has_friends(self):
         return True if len(self.friends) > 0 else False
@@ -27,6 +29,3 @@ class Loki:
         else:
             greeting = [f"Hi, {friend.name}!" for friend in self.friends]
             return ' '.join(greeting)
-
-    def eat(self):
-        ...
