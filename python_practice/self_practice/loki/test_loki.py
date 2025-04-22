@@ -143,3 +143,4 @@ def test_hungry():
     assert loki.hungry == False
     
     # sorry I missed the streaks (womp womp)
+    # I'm running out of idurrs...ruh roh, raggy
