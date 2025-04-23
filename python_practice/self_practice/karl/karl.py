@@ -1,0 +1,3 @@
+class Karl:
+    def __init__(self):
+        ...
