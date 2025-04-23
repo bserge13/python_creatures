@@ -141,6 +141,3 @@ def test_hungry():
     loki.eat()
     assert loki.eat_counter == 3
     assert loki.hungry == False
-    
-    # sorry I missed the streaks (womp womp)
-    # I'm running out of idurrs...ruh roh, raggy
