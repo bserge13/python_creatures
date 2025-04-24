@@ -9,4 +9,5 @@ class Karl:
     def meow(self):
         self.treat_counter += 1
         if self.treat_counter >= 3:
-            self.tired = True and self.hungry = False
+            self.tired = True 
+            self.hungry = False
