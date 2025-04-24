@@ -6,5 +6,5 @@ class Karl:
         self.hungry = True 
         self.eat_counter = 0
     
-    def d(self):
+    def meow(self):
         ...

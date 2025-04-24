@@ -10,5 +10,5 @@ def test_attrs():
     assert karl.hungry == True
     assert karl.eat_counter == 0 
 
-def test_():
+def test_meow():
     karl = Karl()
