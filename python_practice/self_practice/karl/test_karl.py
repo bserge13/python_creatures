@@ -9,3 +9,6 @@ def test_attrs():
     assert karl.tired == False
     assert karl.hungry == True
     assert karl.eat_counter == 0 
+
+def test_():
+    karl = Karl()

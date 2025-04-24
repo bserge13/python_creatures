@@ -5,3 +5,6 @@ class Karl:
         self.tired = False
         self.hungry = True 
         self.eat_counter = 0
+    
+    def d(self):
+        ...
