@@ -8,7 +8,12 @@ def test_attrs():
     assert karl.nickname == 'Big Puss'
     assert karl.tired == False
     assert karl.hungry == True
-    assert karl.eat_counter == 0 
+    assert karl.treat_counter == 0 
 
 def test_meow():
     karl = Karl()
+    
+    karl.meow()
+    assert karl.treat_counter == 1
+    assert karl.hungry == True
+    assert karl.tired == False
