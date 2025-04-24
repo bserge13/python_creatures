@@ -22,3 +22,8 @@ def test_meow():
     assert karl.treat_counter == 2
     assert karl.hungry == True
     assert karl.tired == False
+
+    karl.meow()
+    assert karl.treat_counter == 3
+    assert karl.hungry == False
+    assert karl.tired == True
