@@ -11,3 +11,6 @@ class Karl:
         if self.treat_counter >= 3:
             self.tired = True 
             self.hungry = False
+    
+    def speak(self):
+        return f"I am {self.name}, hear me ROAR!"
