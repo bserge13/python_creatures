@@ -27,3 +27,8 @@ def test_meow():
     assert karl.treat_counter == 3
     assert karl.hungry == False
     assert karl.tired == True
+
+def test_():
+    karl = Karl()
+
+    assert karl.speak() == 'I am Karl, hear me ROAR!'
