@@ -15,5 +15,4 @@ class Karl:
     def speak(self, name=None):
         if name == None:
             return 'I am Karl, hear me ROAR!'
-        else:
-            return f"I am Karl, hear me ROAR, {name}!"
+        return f"I am Karl, hear me ROAR, {name}!"
