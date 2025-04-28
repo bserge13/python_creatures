@@ -32,3 +32,4 @@ def test_speak():
     karl = Karl()
 
     assert karl.speak() == 'I am Karl, hear me ROAR!'
+    assert karl.speak('Loki') == 'I am Karl, hear me ROAR, Loki!'
