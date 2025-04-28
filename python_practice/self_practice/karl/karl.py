@@ -12,5 +12,8 @@ class Karl:
             self.tired = True 
             self.hungry = False
     
-    def speak(self):
-        return f"I am {self.name}, hear me ROAR!"
+    def speak(self, name=None):
+        if name == None:
+            return 'I am Karl, hear me ROAR!'
+        else:
+            return f"I am Karl, hear me ROAR, {name}!"
