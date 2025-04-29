@@ -3,4 +3,4 @@ class Friend:
         self.name = name
     
     def play_with(self, friend):
-        ...
+        return f"Let's play, {friend.nickname}!"
