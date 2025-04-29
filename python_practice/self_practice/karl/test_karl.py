@@ -1,5 +1,6 @@
 import pytest 
-from karl import Karl 
+from karl import Karl
+from friend import Friend
 
 def test_attrs():
     karl = Karl()
@@ -33,3 +34,9 @@ def test_speak():
 
     assert karl.speak() == 'I am Karl, hear me ROAR!'
     assert karl.speak('Loki') == 'I am Karl, hear me ROAR, Loki!'
+
+def test_friend_play():
+    karl = Karl()
+    loki = Friend()
+
+    
