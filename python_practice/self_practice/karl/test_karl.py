@@ -39,4 +39,4 @@ def test_friend_play():
     karl = Karl()
     loki = Friend()
 
-    
+    assert loki.play_with(karl) == f"Let's play, {karl.nickname}!"
