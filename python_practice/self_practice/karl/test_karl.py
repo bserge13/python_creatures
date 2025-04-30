@@ -40,3 +40,4 @@ def test_friend_play():
     loki = Friend()
 
     assert loki.play_with(karl) == f"Let's play, {karl.nickname}!"
+    # just drilling holes- keeping the streaks alive
