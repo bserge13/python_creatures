@@ -41,3 +41,4 @@ def test_friend_play():
 
     assert loki.play_with(karl) == f"Let's play, {karl.nickname}!"
     # just drilling holes- keeping the streaks alive
+    # still...just doing it for the streaks 
